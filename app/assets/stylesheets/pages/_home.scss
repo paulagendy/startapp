@@ -1,1 +1,12 @@
-// Specific CSS for your home-page
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh
+}
+
+a {
+  // width: 80px;
+  // height: 80px;
+  // background-color: #121212;
+  // border-radius: 100vw;
+}
