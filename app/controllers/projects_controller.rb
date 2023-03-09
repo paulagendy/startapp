@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    raise
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
@@ -20,6 +21,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, :id, project_technologies_attributes: [:id, :technology_id, :_destroy])
+    params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, :id,project_technologies_attributes: [:id, :technology_id, :_destroy])
   end
 end

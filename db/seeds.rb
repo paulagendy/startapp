@@ -47,3 +47,9 @@ technologies = ["ReactJS", "Qwik", "Astro", "SolidJS", "MongoDB", "Java", "Pytho
 technologies.each do |tech|
 	Technology.create!(name: tech)
 end
+
+spoken_lang = ["English", "French", "Spanish", "German", "Arabic", "Portuguese"]
+
+spoken_lang.each do |lang|
+	SpokenLanguage.create!(name: lang)
+end
