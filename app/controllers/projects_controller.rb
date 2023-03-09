@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 	def new
 		@project = Project.new
+    # @project.project_technologies.build unless @project.project_technologies.any?
 	end
 
   def show
@@ -19,6 +20,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).peramit(:name, :description, :industry, :spoken_language_id, :number_of_developers)
+    params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, :id, project_technologies_attributes: [:id, :technology_id, :_destroy])
   end
 end

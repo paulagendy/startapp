@@ -22,6 +22,21 @@
       <% f.input :spoken_language, collection: Project::SPOKEN_LANGUAGE %>
     </div>
 
+    <div class="nested-fields">
+      <div class="fieldset">
+        <h2>Coding langages and skilled with</h2>
+        <%= f.input :project_technologies, collection: Project::TECHNOLOGY%>
+      </div>
+
+      <%= f.simple_fields_for :project_technologies do |project_technology| %>
+        <%= render 'project_technology_fields', f: project_technology %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add technology', f, :project_technologies %>
+      </div>
+    </div>
+
     <%= f.submit %>
   <% end %>
 </main>
