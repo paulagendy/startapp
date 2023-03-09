@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  INDUSTRY = ["Social Media", "Home Services", "Food & Beverage", "E-learning", "E-commerce", "Fitness", "Consulting", "Music & Entertainment"];
   belongs_to :user
   belongs_to :spoken_language, optional: true
   has_many :project_technologies
