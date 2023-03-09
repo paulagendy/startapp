@@ -1,0 +1,13 @@
+<section>
+  <h1>Create your developer profile  </h1>
+  <main class="form-wrapper">
+    <%= simple_form_for(@developer, url: developers_path) do |f| %>
+      <%= f.input :school %>
+      <%= f.input :degree, as: :text %>
+      <%= f.input :technology, as: :string %>
+      <%= f.input :years_of_experiance, as: :decimal %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit class: "form-btn"  %>
+    <% end %>
+  </main>
+</section>
