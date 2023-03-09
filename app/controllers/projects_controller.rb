@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 
+  def show
+    @projects = project.find
+
+
 	def new
 		@project = Project.new
 	end
@@ -25,7 +29,7 @@ class ProjectsController < ApplicationController
 		params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, :user_id)
 	end
 end
-=======
+
 
   def new
     @project = Project.new
@@ -51,5 +55,6 @@ end
 
   def project_params
     params.require(:project).peramit(:name, :description, :industry, :spoken_language_id, :number_of_developers)
+
   end
 end
