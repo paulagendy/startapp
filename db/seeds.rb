@@ -40,3 +40,10 @@ DeveloperProfile.create(school: 'UC Berkeley', degree: 'Master’s in Cybersecur
 DeveloperProfile.create(school: 'Indiana University', degree: 'Master’s Degree in IT Management')
 DeveloperProfile.create(school: 'University of Washington', degree: 'Master’s Degree in Computer Science')
 DeveloperProfile.create(school: 'Syracuse University', degree: 'Master of Science in Information Systems')
+
+
+techlangs = ["ReactJS", "Qwik", "Astro", "SolidJS", "MongoDB", "Java", "Python", "C++", "C#", "C", "PHP", "Swift", "Kotlin", "Go", "Rust", "Dart", "SQL", "NoSQL", "HTML", "CSS", "JavaScript", "TypeScript", "NodeJS", "Angular", "VueJS", "React Native", "Flutter", "Ionic", "Android", "iOS", "AWS"]
+
+techlangs.each do |tech|
+	Technology.create!(name: tech)
+end
