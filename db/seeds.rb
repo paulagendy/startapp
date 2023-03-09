@@ -18,6 +18,7 @@ User.create(email: 'jenn@email.com', password: '123456', role:2, first_name:'Jen
 User.create(email: 'obonekenobi@email.com', password: '123456', role:1, first_name:'Obone', last_name:'Kenobi' )
 User.create(email: 'markcuban@email.com', password: '123456', role:1, first_name:'Mark', last_name:'Cuban' )
 User.create(email: 'chucknorris@email.com', password: '123456', role:1, first_name:'Chuck', last_name:'Norris' )
+
 # -------------------- Seeds for the projects starts here -------------------- #
 Project.create(name: 'BuzzOn', description: 'A social media platform that connects users with local events and activities based on their interests and location.', industry: 'Social Media');
 Project.create(name: 'GreenWay', description: 'An eco-friendly home cleaning service that uses only sustainable and non-toxic cleaning products.', industry: 'Home Services');

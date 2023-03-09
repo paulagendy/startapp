@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<section class="above-fold--wrapper">
+	<div class="form-above-fold--container">
+		<h1>Find your dream team
+      find your dream job</h1>
+    <%= link_to new_user_registration_path do %>
+		  <button>Start your journey</button>
+    <% end %>
+		<%= image_tag "robin-hood.svg", class: "hero-img" %>
+	</div>
+</section>
