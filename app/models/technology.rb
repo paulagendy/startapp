@@ -1,3 +1,3 @@
 class Technology < ApplicationRecord
-	has_many :project_technologies
+	# belongs_to :project
 end
