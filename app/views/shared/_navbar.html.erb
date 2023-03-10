@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "" do %>
-      <%= image_tag "startapp_logo.jpg", class: "startapp" %>
+      <%= image_tag "startapp_owler_20160227_040721_original.jpg", class: "startapp" %>
 
     <% end %>
 
@@ -23,7 +23,7 @@
             <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-            
+
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
