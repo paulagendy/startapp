@@ -1,43 +1,49 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "" do %>
-      <%= image_tag "startapp_owler_20160227_040721_original.jpg", class: "startapp" %>
-
+<div class="navbar--wrapper">
+  <%= link_to "#", class: "logo" do %>
+    StartApp
+  <% end %>
+  <div class="navbar--float-right--container">
+    <% if user_signed_in? %>
+      <%= link_to "Project", projects_path, class: "nav-link" %>
+      <%= link_to "Offers", "#", class: "nav-link" %>
+      <%= link_to "Inbox", "#", class: "nav-link" %>
+      <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+      </div>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <%= link_to "Get started", new_user_registration_path %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My projects", "#", class: "nav-link" %>
-          </li>
-           <li class="nav-item">
-            <%= link_to "My offers", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-
-            <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            <%= link_to "Get started", new_user_registration_path %>
-           <%# <%= link_to "Start your journey", new_user_registration_path %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
   </div>
 </div>
+<style>
+  .logo {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--on-primary);
+  }
+  .navbar--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+  }
+  .navbar--float-right--container {
+    display: flex;
+    align-items: center;
+  }
+  .navbar--float-right--container > :nth-child(2 of .nav-link) {
+    margin: 0 10px;
+  }
+  .navbar--float-right--container > .nav-link:last-of-type {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary);
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+
+  .dropdown-toggle {
+    display: none;
+  }
+</style>
