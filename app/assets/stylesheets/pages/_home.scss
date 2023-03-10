@@ -10,3 +10,39 @@
 //   // background-color: #121212;
 //   // border-radius: 100vw;
 // }
+.form-above-fold--container {
+  background-color:  #FFFCF4;
+}
+
+h1 {
+text-align: left;
+text-decoration: solid;
+text-shadow: none;
+letter-spacing: 0cqmax;
+list-style: upper-roman;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+h4 {
+  height: 128px;
+width: 394px;
+left: 20px;
+top: 120px;
+border-radius: nullpx;
+text-decoration: double;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  background-color:#D8ED7C;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-img {
+  width: 464px;
+  height: 464px;
+  left: 120px;
+  display: flex;
+flex-direction: row;
+ justify-content: flex-start;
+}
