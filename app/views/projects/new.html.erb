@@ -6,22 +6,22 @@
       <%= f.input :name, label: "Company name"  %>
       <%= f.select :industry, collection: Project::INDUSTRY %>
     </div>
-
     <div class="fieldset">
       <h2>What is your project about</h2>
       <%= f.input :description.language.name, as: :text %>
     </div>
-
+    <div class="fieldset">
+      <h2>spoken language</h2>
+      <%= f.association :spoken_language, collection: SpokenLanguage.all %>
+    </div>
+    <div class="fieldset">
+      <h2>Technologies</h2>
+      <%= f.association :technologies, input_html: {multiple: true, include_hidden: false }, collection: Technology.all%>
+    </div>
     <div class="fieldset">
       <h2>How many developers needed</h2>
       <%= f.input :number_of_developers %>
     </div>
-
-    <div class="fieldset">
-      <h2>spoken language</h2>
-      <% f.input :spoken_language, collection: Project::SPOKEN_LANGUAGE %>
-    </div>
-
     <%= f.submit %>
   <% end %>
 </main>

@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      set_top_picks
+      # set_top_picks
        redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
@@ -20,8 +20,9 @@ class ProjectsController < ApplicationController
   end
 
   private
+
   def project_params
-    params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, :id, project_technologies_attributes: [:id, :technology_id, :_destroy])
+    params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, technology_ids:[])
   end
 
   def set_top_picks

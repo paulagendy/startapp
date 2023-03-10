@@ -51,8 +51,14 @@ DeveloperProfile.create!(user: chucknorris, school: 'University of California', 
 # DeveloperProfile.create!(school: 'University of Washington', degree: 'Master’s Degree in Computer Science')
 # DeveloperProfile.create!(school: 'Syracuse University', degree: 'Master of Science in Information Systems')
 puts "dev profile "
+
 technologies = ["ReactJS", "Qwik", "Astro", "SolidJS", "MongoDB", "Java", "Python", "C++", "C#", "C", "PHP", "Swift", "Kotlin", "Go", "Rust", "Dart", "SQL", "NoSQL", "HTML", "CSS", "JavaScript", "TypeScript", "NodeJS", "Angular", "VueJS", "React Native", "Flutter", "Ionic", "Android", "iOS", "AWS"]
 
 technologies.each do |tech|
 	Technology.create!(name: tech)
+end
+spoken_lang = ["English", "French", "Spanish", "German", "Arabic", "Portuguese"]
+
+spoken_lang.each do |lang|
+	SpokenLanguage.create!(name: lang)
 end
