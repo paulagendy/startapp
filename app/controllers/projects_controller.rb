@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  def
 	def new
 		@project = Project.new
     # @project.project_technologies.build unless @project.project_technologies.any?

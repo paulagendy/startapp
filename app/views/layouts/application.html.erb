@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>
 </html>
+<style>
+  @font-face {
+    font-family: "mona";
+    src: url("https://public-asse.s3.ca-central-1.amazonaws.com/fonts/Mona-Sans.ttf");
+    font-weight: 200 900;
+  }
+  body {
+    background-color: var(--bg-color);
+    font-family: mona;
+  }
+  :root {
+    --bg-color: #FFFCF4;
+    --primary-container: #D8ED7C;
+    --on-primary: #181E00;
+    --secondary-container: #404C00;
+    --on-secondary:  #D8ED7C
+  }
+</style>

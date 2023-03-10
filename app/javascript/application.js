@@ -2,4 +2,3 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-import "@oddcamp/cocoon-vanilla-js";
