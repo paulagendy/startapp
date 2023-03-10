@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
+      set_top_picks
        redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
@@ -21,5 +22,11 @@ class ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project).permit(:name, :description, :industry, :spoken_language_id, :number_of_developers, :id, project_technologies_attributes: [:id, :technology_id, :_destroy])
+  end
+
+  def set_top_picks
+    # filter developer profiles by spoken langueage
+    # filter by project tecnologies
+    # create 3 top pick instances for number_of_developers
   end
 end

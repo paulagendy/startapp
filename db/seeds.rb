@@ -21,6 +21,7 @@ obonekenobi = User.create!(email: 'obonekenobi@email.com', password: '123456', r
 matteo = User.create!(email: 'matteo@email.com', password: '123456', role:2, first_name:'Matteo', last_name:'Duran' )
 markcuban = User.create!(email: 'markcuban@email.com', password: '123456', role:1, first_name:'Mark', last_name:'Cuban' )
 chucknorris = User.create!(email: 'chucknorris@email.com', password: '123456', role:1, first_name:'Chuck', last_name:'Norris' )
+# add the spoken languages
 puts "dev done "
 # -------------------- Seeds for the projects starts here -------------------- #
 Project.create!(user: bob, name: 'BuzzOn', description: 'A social media platform that connects users with local events and activities based on their interests and location.', industry: 'Social Media');
@@ -31,6 +32,7 @@ Project.create!(user: bob, name: 'BuzzOn', description: 'A social media platform
 # Project.create!(user: samantha, name: 'FitFlow', description: ' A fitness app that provides personalized workout plans and tracks progress using advanced sensors and machine learning algorithms.', industry: 'Fitness')
 # Project.create!(user: amanda, name: 'EcoGenius', description: 'A consultancy that helps businesses reduce their environmental impact through sustainability audits and green technology adoption.', industry: 'Consulting')
 # Project.create!(user: amanda, name: 'SoundScape', description: 'A mobile app that curates personalized playlists for users based on their mood, activity, and music preferences.', industry: 'Music & Entertainment')
+# add spoken langages
 puts "project done "
 # --------------------- Seeds for the projects tecnologies --------------------- #
 # ProjectTechnology.create!(project: )
@@ -41,6 +43,8 @@ DeveloperProfile.create!(user: obonekenobi, school: 'University of Waterloo', de
 DeveloperProfile.create!(user: matteo, school: 'University of Michigan', degree: 'Certificate in Electrical Engineering')
 DeveloperProfile.create!(user: markcuban, school: 'University of Texas', degree: 'Master’s in Data Science');
 DeveloperProfile.create!(user: chucknorris, school: 'University of California', degree: 'Master of Science in Artificial Intelligence');
+# create
+
 
 # DeveloperProfile.create!(school: 'UC Berkeley', degree: 'Master’s in Cybersecurity');
 # DeveloperProfile.create!(school: 'Indiana University', degree: 'Master’s Degree in IT Management')
