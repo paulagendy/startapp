@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   resources :developer, only: [:create, :show, :new]
   resources :offers, only: [:show, :new]
   resources :projects, only: [:create, :show, :new]
+
+  resources :home, only: [:show]
+
+
 end
