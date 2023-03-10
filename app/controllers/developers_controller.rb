@@ -5,6 +5,10 @@ class DevelopersController < ApplicationController
     @developer = Developer.new
   end
 
+  def index
+    @developer.all
+  end
+
   def show
     @developer = Developer.find(params[:id])
     @developer.user = current_user
@@ -19,6 +23,10 @@ class DevelopersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def developer_pic
+
   end
 
   private
