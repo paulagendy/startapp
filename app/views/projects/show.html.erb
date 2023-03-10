@@ -9,6 +9,15 @@
     <p> <%= @project.number_of_developers %></p>
     <%# For testing purposes %>
   </div>
+  <div>
+    <p>
+      <% @project.technologies.each do |technology| %>
+        <%= technology.name %>
+      <% end %>
+      <%= @project.technologies.count %>
+    </p>
+    <p> <%= @project.spoken_language.name %></p>
+  </div>
   <div class="card-wrapper">
     <span class="subtitle">Recommandations</span>
     <h2>Developper Picks</h2>

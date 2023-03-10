@@ -6,5 +6,4 @@ class Project < ApplicationRecord
   has_many :technologies, through: :project_technologies
   has_many :offers
   has_many :top_picks
-  SPOKEN_LANGUAGE = ["English", "French", "Spanish", "German", "Arabic", "Portuguese", "Mandarin"]
 end
