@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :developer, only: [:create, :show, :new]
-  resources :offers, only: [:show, :new]
-  resources :projects, only: [:create, :show, :new]
+  resources :offers, only: [:create, :new]
+  resources :projects, only: [:create, :new]
+
 end

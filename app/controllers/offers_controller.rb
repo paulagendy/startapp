@@ -17,6 +17,8 @@ class OffersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
+    end
   end
 
   private
@@ -24,6 +26,3 @@ class OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:houry_rate)
   end
-
-
-end
