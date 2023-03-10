@@ -1,0 +1,42 @@
+<h1>Tell us about your project</h1>
+<main>
+  <%= simple_form_for(@project) do |f| %>
+    <div class ="fieldset">
+      <h2>Give us a bit of information on your company</h2>
+      <%= f.input :name, label: "Company name"  %>
+      <%= f.select :industry, collection: Project::INDUSTRY %>
+    </div>
+
+    <div class="fieldset">
+      <h2>What is your project about</h2>
+      <%= f.input :description, as: :text %>
+    </div>
+
+    <div class="fieldset">
+      <h2>How many developers needed</h2>
+      <%= f.input :number_of_developers %>
+    </div>
+
+    <div class="fieldset">
+      <h2>spoken language</h2>
+      <% f.input :spoken_language, collection: Project::SPOKEN_LANGUAGE %>
+    </div>
+
+    <div class="nested-fields">
+      <div class="fieldset">
+        <h2>Coding langages and skilled with</h2>
+        <%= f.input :project_technologies, collection: Project::TECHNOLOGY%>
+      </div>
+
+      <%= f.simple_fields_for :project_technologies do |project_technology| %>
+        <%= render 'project_technology_fields', f: project_technology %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add technology', f, :project_technologies %>
+      </div>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</main>
