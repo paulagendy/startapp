@@ -16,4 +16,5 @@ class User < ApplicationRecord
     founder: 1,
     developer: 2
   }
+  has_many :messages
 end

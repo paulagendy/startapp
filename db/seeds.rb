@@ -19,12 +19,12 @@ spoken_lang.each do |lang|
 	SpokenLanguage.create!(name: lang)
 end
 
-puts "adding the veriables done "
+puts "adding the variables done "
 # -------------------- Seeds for the developers starts here -------------------- #
-bob = User.create!(email: 'bob@email.com', password: '123456', role:2,first_name:'Bob', last_name:'Al Koukou' )
-anthony = User.create!(email: 'anthony@email.com', password: '123456', role:2, first_name:'Anthony', last_name:'Amin' )
-steven = User.create!(email: 'Steven@email.com', password: '123456', role:2, first_name:'Steven', last_name:'Andrade' )
-samantha = User.create!(email: 'samantha@email.com', password: '123456', role:2, first_name:'Samanthat', last_name:'Bruderlein' )
+bob = User.create!(email: 'bob@email.com', password: '123456', nickname: "Bob Extra", role:2,first_name:'Bob', last_name:'Al Koukou' )
+anthony = User.create!(email: 'anthony@email.com', password: '123456', nickname: "Anthony Super", role:2, first_name:'Anthony', last_name:'Amin' )
+steven = User.create!(email: 'Steven@email.com', password: '123456', nickname: "Steven Amazed", role:2, first_name:'Steven', last_name:'Andrade' )
+samantha = User.create!(email: 'samantha@email.com',nickname: "Samantha Wowza", password: '123456', role:2, first_name:'Samantha', last_name:'Bruderlein' )
 becki = User.create!(email: 'becki@email.com', password: '123456', role:2, first_name:'Becki', last_name:'Belai' )
 max = User.create!(email: 'max@email.com', password: '123456', role:2, first_name:'Max', last_name:'Di Fiore' )
 amanda = User.create!(email: 'amanda@email.com', password: '123456', role:2, first_name:'Amanda', last_name:'Doulcet' )
@@ -86,7 +86,9 @@ Project.create!(user: matteo, name: 'FoodFuel', description: "A meal delivery se
 Project.create!(user: markcuban, name: 'CodeCrush', description: "An online coding bootcamp that teaches beginners how to code and prepares them for a career in tech.", industry: 'E-learning', spoken_language: SpokenLanguage.fourth )
 Project.create!(user: chucknorris, name: 'ShopSnap', description: 'A virtual shopping assistant that uses AI to help customers find the products they want and compare prices across multiple retailers.', industry: 'E-commerce', spoken_language: SpokenLanguage.fifth)
 puts "project done "
-# --------------------- Seeds for the projects tecnologies --------------------- #
-# ProjectTechnology.create!(project: )
 
-# create
+# ----------------------------- Seed for chatroom ---------------------------- #
+# TODO: will need to link the chatroom to the developper and the founder
+Chatroom.create!(name: "Chatroom Test")
+puts "Generating chatroom done"
+
