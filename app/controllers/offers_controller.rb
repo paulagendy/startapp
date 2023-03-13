@@ -2,6 +2,8 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    @developer = DeveloperProfile.first
+    @user = @developer.user
   end
 
   def show

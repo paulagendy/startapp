@@ -16,4 +16,8 @@ class User < ApplicationRecord
     founder: 1,
     developer: 2
   }
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 end

@@ -1,4 +1,23 @@
 <h1>Make an offer</h1>
-<div class="card-offer">
-<img src="" alt="">
+<div class=" card card-wrapper--main">
+ <div class="offer-title-container">
+   <%= image_tag(@developer.avatar) %>
+   <h2 class ="developer_name"><%= @user.full_name %></h2>
+ </div>
+
+ <div class=" card card-wrapper--main">
+  <div class ="offer-subtitle-container">
+    <h2>Your offer</h2>
+     <%= simple_form_for(@offer) do |f| %>
+     <%# <div class ="fieldset"> %>
+      <%# <h3 class = "hours_number">Number of hours</h3> %>
+      <%# <%= f.number_field :hourly_rate %>
+     <%# </div> %>
+     <h3 class ="hourly_rate">Hourly Rate</h3>
+     <%= f.number_field :hourly_rate %>
+     <% end %>
+  </div>
+     <input type="submit" name="commit" value="Send Offer" data-disable-with="Send Offer">
+ </div>
+
 </div>
