@@ -25,6 +25,13 @@
     <div class="project--title-container">
       <span class="project-subtitle">Recommandations</span>
       <h1 class="project-title">Developper Picks</h1>
+      <%= @picks.each do |t| %>
+      <%= t.years_of_experience %>
+      <%= t.school %>
+      <%= t.degree %>
+      <%= t.spoken_language %>
+      <%= t.technologies %>
+      <% end %>
     </div>
   </div>
 </div>

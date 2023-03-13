@@ -31,17 +31,14 @@ class ProjectsController < ApplicationController
     @dev_spoken_langs = DeveloperProfileSpokenLanguage.where(spoken_language: @project.spoken_language)
     @dev_profiles = @dev_spoken_langs.map(&:developer_profile)
     # get t4he prokects all the project tecnologies and then find the developers with the same tecnologies
-    @technology = @project_technology.technology
-    raise
-    # @developer_technologies =
+    @techs = @project.technologies.to_a
 
-
-    # devSpokenLang = DeveloperProfileSpokenLanguage.all
-
-
-
-    # filter developer profiles by spoken langueage
-    # filter by project tecnologies
-    # create 3 top pick instances for number_of_developers
+    @profiles = @dev_profiles.select do |dev_profile|
+      dev_profile.technologies.to_a.intersection(@techs)
+    end
+    number_of_top_picks = @project.number_of_developers.abs * 3
+    @picks = @profiles.first(number_of_top_picks).each do |profile|
+      profile = TopPick.create!(developer_profile: profile, project: @project)
+    end
   end
 end
