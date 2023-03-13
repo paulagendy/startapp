@@ -1,26 +1,62 @@
-<main>
-  <div class="card-wrapper">
-    <span class="subtitle">Project</span>
-    <h1><%= @project.name %></h1>
+<main class="project-section">
+  <div class=" card card-wrapper--main">
+    <div class="project--title-container">
+      <span class="project-subtitle">Project</span>
+      <h1 class="project-title"><%= @project.name %></h1>
+    </div>
+    <span class="project-subtitle">Description</span>
     <p><%= @project.description %></p>
-    <span class="subtitle">Needs</span>
-    <%# For testing purposes %>
-    <p> <%= @project.industry %></p>
-    <p> <%= @project.number_of_developers %></p>
-    <%# For testing purposes %>
+    <div class="inline-flex">
+      <div>
+        <span class="project-subtitle">Industry</span>
+        <p> <%= @project.industry %></p>
+      </div>
+      <div>
+        <span class="project-subtitle">Needs</span>
+        <p class="project--subtext">
+          <% @project.technologies.each do |technology| %>
+            <%= technology.name %>
+          <% end %>
+        </p>
+      </div>
+    </div>
   </div>
-  <div>
-    <p>
-      <% @project.technologies.each do |technology| %>
-        <%= technology.name %>
-      <% end %>
-      <%= @project.technologies.count %>
-    </p>
-    <p> <%= @project.spoken_language.name %></p>
+  <div class=" card card-wrapper--main">
+    <div class="project--title-container">
+      <span class="project-subtitle">Recommandations</span>
+      <h1 class="project-title">Developper Picks</h1>
+    </div>
   </div>
-  <div class="card-wrapper">
-    <span class="subtitle">Recommandations</span>
-    <h2>Developper Picks</h2>
-    
-  </div>
+</div>
 </main>
+<style>
+  .project-section {
+    padding: 24px;
+    padding-top: 100px
+  }
+  .card-wrapper--main {
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+  .project--title-container {
+    padding-top: 8px;
+    border-bottom: var( --stroke);
+    margin-bottom: 24px;
+  }
+
+  .project-title {
+  font-weight: 600;
+  font-size: 40px;
+  }
+  .project-subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--txt-secondary);
+  }
+
+  .inline-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
