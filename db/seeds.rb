@@ -32,21 +32,21 @@ puts "developers done "
 
 # --------------------- Seeds for the developper profile --------------------- #
 # DeveloperProfile.create!(user: bob, school: 'University of Toronto', degree: 'Bachelor in Computer Science', years_of_experience:0, developer_profile_technologies: Technology.first)
-developer_one = DeveloperProfile.create!(user: anthony, school: 'University of Waterloo', degree: 'Master in Computer Science', years_of_experience:5, description: 'i need a job')
+developer_one = DeveloperProfile.create!(user: anthony, school: 'University of Waterloo', degree: 'Master in Computer Science', years_of_experience:5, description: 'i need a job', avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678723688/hurjtaf30nmwkr3z7yel.jpg")
 # --------------------- Seeds for the technology --------------------- #
 DeveloperProfileTechnology.create!(developer_profile: developer_one, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_one, technology: Technology.second )
 # --------------------- Seeds for the SpokenLanguage --------------------- #
 DeveloperProfileSpokenLanguage.create!(developer_profile: developer_one, spoken_language: SpokenLanguage.first)
 
-developer_two = DeveloperProfile.create!(user: steven, school: 'University of Michigan', degree: 'Certificate in Electrical Engineering', years_of_experience:2, description:'i want to use my skills to improve the world around me for the better')
+developer_two = DeveloperProfile.create!(user: steven, school: 'University of Michigan', degree: 'Certificate in Electrical Engineering', years_of_experience:2, description:'i want to use my skills to improve the world around me for the better', avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678730658/ghngcdj8sbxuw5wsym6z.jpg")
 # --------------------- Seeds for the technology --------------------- #
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.second )
 # --------------------- Seeds for the SpokenLanguage --------------------- #
 DeveloperProfileSpokenLanguage.create!(developer_profile: developer_two, spoken_language: SpokenLanguage.first)
 
-developer_three = DeveloperProfile.create!(user: becki, school: 'University of Texas', degree: "Master's in Data Science", years_of_experience:4, description:'hirre me im good for it ;)' )
+developer_three = DeveloperProfile.create!(user: becki, school: 'University of Texas', degree: "Master's in Data Science", years_of_experience:4, description:'hirre me im good for it ;)', avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678731134/mfzlz1zhipkndiszpzg5.jpg" )
 # --------------------- Seeds for the technology --------------------- #
 DeveloperProfileTechnology.create!(developer_profile: developer_three, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_three, technology: Technology.second )
