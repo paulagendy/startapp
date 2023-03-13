@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_153601) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_185653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,6 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_153601) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "founder_id"
+    t.bigint "developer_id"
   end
 
   create_table "developer_profile_spoken_languages", force: :cascade do |t|
