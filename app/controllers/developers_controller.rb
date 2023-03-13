@@ -8,6 +8,7 @@ class DevelopersController < ApplicationController
   def show
     @developer = Developer.find(params[:id])
     @developer.user = current_user
+    @existing_chatroom = Chatroom.get_chatroom(current_user, @developer).first
   end
 
   def create

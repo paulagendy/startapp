@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_185653) do
     t.datetime "updated_at", null: false
     t.bigint "founder_id"
     t.bigint "developer_id"
+    t.index ["developer_id"], name: "index_chatrooms_on_developer_id"
+    t.index ["founder_id"], name: "index_chatrooms_on_founder_id"
   end
 
   create_table "developer_profile_spoken_languages", force: :cascade do |t|
@@ -132,6 +134,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_185653) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatrooms", "users", column: "developer_id"
+  add_foreign_key "chatrooms", "users", column: "founder_id"
   add_foreign_key "developer_profile_spoken_languages", "developer_profiles"
   add_foreign_key "developer_profile_spoken_languages", "spoken_languages"
   add_foreign_key "developer_profile_technologies", "developer_profiles"

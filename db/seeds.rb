@@ -5,6 +5,7 @@ ProjectTechnology.destroy_all
 Project.destroy_all
 SpokenLanguage.destroy_all
 Technology.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 puts "Cleaning the database done "
 
@@ -89,6 +90,20 @@ puts "project done "
 
 # ----------------------------- Seed for chatroom ---------------------------- #
 # TODO: will need to link the chatroom to the developper and the founder
-Chatroom.create!(name: "Chatroom Test")
+
+chatroom_one = Chatroom.create!(name: "Chatroom Test", founder_id: bob.id, developer_id: developer_one.id)
+
+message_one = Message.create!(
+  content: "Oh hey Developer",
+  chatroom: chatroom_one,
+  user: bob
+)
+
+message_two = Message.create!(
+  content: "Oh Hey Founder",
+  chatroom: chatroom_one,
+  user: steven
+)
+
 puts "Generating chatroom done"
 

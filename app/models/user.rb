@@ -3,18 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   has_many :projects
   has_one :developer_profile
   has_many :developer_profile_technologies, through: :developer_profile
   has_many :technologies, through: :developer_profile_technologies
   has_many :developer_profile_spoken_languages, through: :developer_profile
   has_many :spoken_languages, through: :developer_profile_spoken_languages
+  has_many :messages
+  has_many :founder_chatrooms, class_name: 'Chatroom', foreign_key: 'founder_id'
   has_many :offers, through: :developer_profile
   enum role: {
     undefined: 0,
     founder: 1,
     developer: 2
   }
-  has_many :messages
 end
