@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :projects
+  has_one :project
   has_one :developer_profile
   has_many :developer_profile_technologies, through: :developer_profile
   has_many :technologies, through: :developer_profile_technologies
