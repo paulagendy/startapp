@@ -26,10 +26,18 @@ class ProjectsController < ApplicationController
   end
 
   def set_top_picks
-    @project = Project.find(params[:id])
+    # getting the projects spoken language and all the developers that have the same languages
     @language = @project.spoken_language
+    @dev_spoken_langs = DeveloperProfileSpokenLanguage.where(spoken_language: @project.spoken_language)
+    @dev_profiles = @dev_spoken_langs.map(&:developer_profile)
+    # get t4he prokects all the project tecnologies and then find the developers with the same tecnologies
+    @technology = @project_technology.technology
+    raise
+    # @developer_technologies =
+
+
     # devSpokenLang = DeveloperProfileSpokenLanguage.all
-      raise
+
 
 
     # filter developer profiles by spoken langueage
