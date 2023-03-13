@@ -27,6 +27,11 @@
       <h1 class="project-title">Developper Picks</h1>
     </div>
   </div>
+  <div class="d-flex flex-column gap-2 align-items-start"><%= link_to "See profile", project_path(current_user.project), class: "main-btn" %>
+
+    <%= link_to "See profile", project_path(current_user.project) , class: "main-btn" %>
+
+     <%= link_to "See profile", project_path(current_user.project), class: "main-btn" %></div>
 </div>
 </main>
 <style>
@@ -59,4 +64,7 @@
     display: flex;
     justify-content: space-between;
   }
+  .main-btn {
+  justify-content: space-between;
+ }
 </style>
