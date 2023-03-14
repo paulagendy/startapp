@@ -1,0 +1,131 @@
+
+<main class="profile-page--wrapper">
+  <div class="card dev-profile--info-wrapper">
+    <div class="dev-profile--info-container">
+      <div class="gradiented-card-cover">
+      </div>
+      <img src="<%= @dev_pic %>" alt="A american portrait of a developer" class="avatar-img mt-80px">
+      <h1 class="dev-profile--title">
+        <%= @developer.user.first_name %> <%= @developer.user.last_name %>
+      </h1>
+      <span> <%= @developer.description %></span>
+      <p class="dev-profile--sm-subtitle"> Speaks <%= @dev_languages.name %></p>
+    </div>
+    <div class="dev-profile--btn-container">
+      <% unless current_user == @user %>
+        <% if @existing_chatroom.nil? %>
+          <%= button_to "Start Chat", chatrooms_path, method: :post,  params: { developer_id: @developer.id } %>
+        <% else %>
+          <%= button_to "Start Chat", chatroom_path(@existing_chatroom) %>
+        <% end %>
+      <% end %>
+      <%= button_to "Make an offer", new_offer_path(@developer) %>
+    </div>
+  </div>
+  <div class="card dev-profile--summary-wrapper">
+    <h2 class="card-label">Summary</h2>
+    <p><%= @developer.bio %></p>
+  </div>
+  <div class="card dev-profile--expertise-wrapper">
+    <h2 class="card-label">Expertise</h2>
+    <div class="inline-flex">
+      <% @dev_technologies.each do |tech| %>
+        <span class="dev-profile--tech"> <%= tech.name %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="card dev-profile--education-wrapper">
+    <h2 class="card-label">Education</h2>
+    <span class="dev-profile--subtitle text--is-primary"> <%= @developer.school %></span>
+    <span class="dev-profile--subtitle"> <%= @developer.degree %></span>
+  </div>
+</main>
+<style>
+  .profile-page--wrapper {
+    padding: 60px 24px 0px 24px;
+  }
+  .dev-profile--info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-container);
+    border-radius: 8px;
+    padding-bottom: 8px;
+  }
+  .gradiented-card-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: radial-gradient(60% 460% at 33.33% 68.33%, #FFFFFF 0%, #FFFFFF 45.41%, rgba(255, 255, 255, 0) 100%);
+  }
+  .dev-profile--info-container {
+    text-align: center;
+  }
+  .dev-profile--info-container > * {
+    position: relative;
+    z-index: 2;
+  }
+  .dev-profile--info-container .gradiented-card-cover  {
+    position: absolute;
+    z-index: 1;
+    border-bottom: var(--stroke);
+  }
+  .dev-profile--title {
+    font-weight: 560;
+    font-size: 32px;
+    margin-top: 16px;
+  }
+  .dev-profile--subtitle {
+    font-weight: 400;
+  }
+  .dev-profile--sm-subtitle {
+    font-weight: 400;
+    font-size: 12px;
+  }
+
+  .dev-profile--btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px
+  }
+  .dev-profile--btn-container  > * {
+    flex-grow: 1;
+  }
+   .dev-profile--btn-container  > * > * {
+    width: 100%;
+  }
+  .card-label {
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 8px 12px;
+    font-weight: 500;
+    font-size: 18px;
+    background: #E3E3D3;
+    border-radius: 4px;
+    border: var(--stroke)
+  }
+  .inline-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .dev-profile--tech {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--txt-secondary);
+    padding: 16px 32px;
+  }
+  .dev-profile--tech:nth-of-type(odd) {
+    border-right: 1px solid rgba(18, 18, 18, 0.12);;
+  }
+  .text--is-primary {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+    color: var(--txt-secondary);
+  }
+</style>

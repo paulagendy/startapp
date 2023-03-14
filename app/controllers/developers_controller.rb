@@ -1,17 +1,19 @@
 class DevelopersController < ApplicationController
-
-
   def new
-    @developer = Developer.new
+    @developer = DeveloperProfile.new
   end
 
   def show
-    @developer = Developer.find(params[:id])
-    @developer.user = current_user
+    @developer = DeveloperProfile.find(params[:id])
+    @dev_technologies = @developer.technologies
+    @dev_languages = @developer.spoken_languages.first
+    @dev_pic = @developer.avatar
+    # Here is where I want to create a chatroom if one does not exist
+    @existing_chatroom = Chatroom.get_chatroom(current_user, @developer.user).first
   end
 
   def create
-    @developer = Developer.new(developer_params)
+    @developer = DeveloperProfile.new(developer_params)
     @developer.user = current_user
 
     if @developer.save
@@ -28,6 +30,6 @@ class DevelopersController < ApplicationController
   private
 
   def developer_params
-    params.require(:developer).peramit(:years_of_experience, :school, :degree)
+    params.require(:developer).permit(:years_of_experience, :school, :degree)
   end
 end
