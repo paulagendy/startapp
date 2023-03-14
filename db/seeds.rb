@@ -1,5 +1,6 @@
 DeveloperProfileTechnology.destroy_all
 DeveloperProfileSpokenLanguage.destroy_all
+TopPick.destroy_all
 DeveloperProfile.destroy_all
 ProjectTechnology.destroy_all
 Project.destroy_all
