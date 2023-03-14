@@ -4,10 +4,9 @@
   <% end %>
   <div class="navbar--float-right--container">
     <% if user_signed_in? %>
-      <%# TODO: link to a specific *projects_path* page (which one ?) %>
-      <%= link_to "Project", "#", class: "nav-link" %>
-      <%= link_to "Offers", "#", class: "nav-link" %>
-      <%# TODO: link to a specific *chatrooms_path* (which one ?) %>
+      <%= link_to "Project", project_path(current_user.project), class: "nav-link" %>
+      <%= link_to "Offers", new_offer_path, class: "nav-link" %>
+
       <%= link_to "Inbox", "#", class: "nav-link" %>
       <%= image_tag "", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -34,10 +33,11 @@
   .navbar--float-right--container {
     display: flex;
     align-items: center;
+    gap: 10px
   }
-  .navbar--float-right--container > :nth-child(2 of .nav-link) {
+  /* .navbar--float-right--container > :nth-child(2 of .nav-link) {
     margin: 0 10px;
-  }
+  } */
   .navbar--float-right--container > .nav-link:last-of-type {
     background-color: var(--secondary-container);
     color: var(--on-secondary);

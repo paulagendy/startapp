@@ -1,5 +1,4 @@
 class DevelopersController < ApplicationController
-
   def new
     @developer = DeveloperProfile.new
   end
@@ -31,6 +30,6 @@ class DevelopersController < ApplicationController
   private
 
   def developer_params
-    params.require(:developer).peramit(:years_of_experience, :school, :degree)
+    params.require(:developer).permit(:years_of_experience, :school, :degree)
   end
 end

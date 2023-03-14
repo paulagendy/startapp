@@ -31,7 +31,16 @@
 
     </div>
   </div>
-</div>
+
+<%@project.top_picks.each do |top_pick| %>
+  <%= link_to "See profile", developer_path(top_pick.developer_profile), class: "main-btn" %>
+  <%= link_to "See profile", destroy_user_session_path, class: "main-btn" %>
+<% end %>
+
+  <div class="d-flex flex-column gap-2 align-items-start"><%= link_to "See profile", project_path(current_user.project), class: "main-btn" %>
+
+
+
 </main>
 <style>
   .project-section {
@@ -63,4 +72,7 @@
     display: flex;
     justify-content: space-between;
   }
+  .main-btn {
+  justify-content: space-between;
+ }
 </style>
