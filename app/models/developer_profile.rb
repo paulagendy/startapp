@@ -6,4 +6,8 @@ class DeveloperProfile < ApplicationRecord
   has_many :spoken_languages, through: :developer_profile_spoken_languages
   has_many :offers
 
+  # scope :get_top_pics, -> (language) {
+  #   where(langu)
+  # }
+
 end
