@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      # set_top_picks
+      set_top_picks
        redirect_to project_path(@project)
     else
       render :new, status: :unprocessable_entity
@@ -26,8 +26,21 @@ class ProjectsController < ApplicationController
   end
 
   def set_top_picks
-    # filter developer profiles by spoken langueage
-    # filter by project tecnologies
-    # create 3 top pick instances for number_of_developers
+    # getting the projects spoken language and all the developers that have the same languages
+    @language = @project.spoken_language
+    @dev_spoken_langs = DeveloperProfileSpokenLanguage.where(spoken_language: @project.spoken_language)
+    @dev_profiles = @dev_spoken_langs.map(&:developer_profile)
+    # get t4he prokects all the project tecnologies and then find the developers with the same tecnologies
+    @techs = @project.technologies.to_a
+
+    @profiles = @dev_profiles.select do |dev_profile|
+      dev_profile.technologies.to_a.intersection(@techs)
+    end
+
+    number_of_top_picks = @project.number_of_developers.abs * 3
+    @picks = @profiles.first(number_of_top_picks).each do |profile|
+      profile = TopPick.create!(developer_profile: profile, project: @project)
+    end
+
   end
 end
