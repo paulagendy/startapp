@@ -22,6 +22,9 @@ class OffersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  def index
+    @offers = current_user.projects.last.offers
+  end
 
   private
 
