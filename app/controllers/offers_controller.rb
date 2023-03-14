@@ -3,6 +3,7 @@ class OffersController < ApplicationController
   def new
     @offer = Offer.new
     @developer = DeveloperProfile.first
+    @developer_profile = @developer.technologies
     @user = @developer.user
   end
 
@@ -12,6 +13,7 @@ class OffersController < ApplicationController
   end
 
   def create
+    raise
     @offer = Offer.new(offer_params)
     @offer.user = current_user
     if @offer.save
@@ -24,7 +26,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:houry_rate)
+    params.require(:offer).permit(:houry_rate, :number_of_hours)
   end
 
 
