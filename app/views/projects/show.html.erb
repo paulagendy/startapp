@@ -27,16 +27,16 @@
       <h1 class="project-title">Developper Picks</h1>
       <% @project.top_picks.each do |t| %>
         <div>
-          <%= t.developer_profile.user.first_name %>
-          <%= t.developer_profile.user.last_name %>
-          <%= t.developer_profile.description %>
-          <%= t.developer_profile.school %>
-          <%= t.developer_profile.degree %>
+          <li><%= t.developer_profile.user.first_name %></li>
+          <li><%= t.developer_profile.user.last_name %></li>
+          <li><%= t.developer_profile.description %></li>
+          <li><%= t.developer_profile.school %></li>
+          <li><%= t.developer_profile.degree %></li>
           <% t.developer_profile.user.technologies.each do |tec|%>
-          <%= tec.name %>
+          <li><%= tec.name %></li>
           <% end %>
-
         </div>
+        <br>
       <% end %>
 
     </div>
