@@ -26,7 +26,17 @@
       <span class="project-subtitle">Recommandations</span>
       <h1 class="project-title">Developper Picks</h1>
       <% @project.top_picks.each do |t| %>
-        <%= t.developer_profile.user.first_name%>
+        <div>
+          <%= t.developer_profile.user.first_name %>
+          <%= t.developer_profile.user.last_name %>
+          <%= t.developer_profile.description %>
+          <%= t.developer_profile.school %>
+          <%= t.developer_profile.degree %>
+          <% t.developer_profile.user.technologies.each do |tec|%>
+          <%= tec.name %>
+          <% end %>
+
+        </div>
       <% end %>
 
     </div>
