@@ -1,9 +1,0 @@
-<h1>@developer.name</h1>
-<% unless current_user == @user %>
-  <% if @existing_conversation.nil? %>
-    <%= button_to "Contact me", conversations_path, params: { artist_id: @user.id } %>
-  <% else %>
-    <%= link_to "Contact me", conversation_path(@existing_conversation) %>
-  <% end %>
-<% end %>
-<%= link_to "Make an offer", offers_new_path(@user) %>

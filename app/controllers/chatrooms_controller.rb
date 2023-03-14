@@ -3,8 +3,10 @@ class ChatroomsController < ApplicationController
 		@chatroom = Chatroom.find(params[:id])
 		@message = Message.new
 	end
+
   def create
-    @chatroom = Chatroom.create(founder_id: current_user.id, developer_id: params[:developer_id])
-    redirect_to chatroom_path(@chatroom)
+    developer = DeveloperProfile.find(params[:developer_id])
+    @chatroom = Chatroom.create!(founder: current_user, developer: developer.user)
+		redirect_to chatroom_path(@chatroom)
   end
 end
