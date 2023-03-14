@@ -36,9 +36,11 @@ class ProjectsController < ApplicationController
     @profiles = @dev_profiles.select do |dev_profile|
       dev_profile.technologies.to_a.intersection(@techs)
     end
+
     number_of_top_picks = @project.number_of_developers.abs * 3
     @picks = @profiles.first(number_of_top_picks).each do |profile|
       profile = TopPick.create!(developer_profile: profile, project: @project)
     end
+
   end
 end
