@@ -1,9 +1,9 @@
 <h1>Make an offer</h1>
 <div class=" card card-wrapper--main">
  <div class="offer-title-container">
-   <%= image_tag(@developer.avatar) %>
+   <%= image_tag(@developer_profile.avatar, width: 200) %>
    <h2 class ="developer_name"><%= @user.full_name %></h2>
-   <% @developer.technologies.each do |tech|%>
+   <% @developer_technologies.each do |tech|%>
       <span><%= tech.name %></span>
       <% end %>
     </div>
@@ -11,7 +11,8 @@
     <div class ="offer-subtitle-container">
       <h2>Your offer</h2>
       <%# TODO: make sure it sends the form submission to offer %>
-      <%= simple_form_for(@offer) do |f| %>
+      <%= simple_form_for([@developer_profile, @offer], url: developer_offers_path(@developer_profile)) do |f| %>
+      <%= f.association :project %>
         <h3 class = "hours_number">Number of hours</h3>
         <%= f.number_field :Number_of_hours %>
       <h3 class ="hourly_rate">Hourly Rate</h3>
