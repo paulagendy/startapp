@@ -26,18 +26,24 @@
       <span class="project-subtitle">Recommandations</span>
       <h1 class="project-title">Developper Picks</h1>
       <% @project.top_picks.each do |t| %>
-        <%= t.developer_profile.user.first_name%>
+        <div>
+          <li><%= t.developer_profile.user.first_name %></li>
+          <li><%= t.developer_profile.user.last_name %></li>
+          <li><%= t.developer_profile.description %></li>
+          <li><%= t.developer_profile.school %></li>
+          <li><%= t.developer_profile.degree %></li>
+          <% t.developer_profile.user.technologies.each do |tec|%>
+          <li><%= tec.name %></li>
+          <% end %>
+        </div>
+        <br>
       <% end %>
-
     </div>
   </div>
 
 <%@project.top_picks.each do |top_pick| %>
   <%= link_to "See profile", developer_path(top_pick.developer_profile), class: "main-btn" %>
 <% end %>
-
-
-
 
 </main>
 <style>

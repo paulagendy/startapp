@@ -38,8 +38,8 @@ class ProjectsController < ApplicationController
     end
 
     number_of_top_picks = @project.number_of_developers.abs * 3
-    @picks = @profiles.first(number_of_top_picks).each do |profile|
-      profile = TopPick.create!(developer_profile: profile, project: @project)
+    @picks = @profiles.first(number_of_top_picks).map do |profile|
+      TopPick.create(developer_profile: profile, project: @project)
     end
 
   end
