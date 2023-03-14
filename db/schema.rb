@@ -72,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_175959) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "Number_of_hours"
     t.index ["developer_profile_id"], name: "index_offers_on_developer_profile_id"
     t.index ["project_id"], name: "index_offers_on_project_id"
   end
