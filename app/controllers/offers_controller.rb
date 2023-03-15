@@ -25,7 +25,6 @@ class OffersController < ApplicationController
     end
   end
 
-
   def update
     @offer = Offer.find(params[:id])
     @offer.update(offer_params)

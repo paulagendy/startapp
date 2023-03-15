@@ -1,14 +1,18 @@
 class MessagesController < ApplicationController
 	def create
-		@message = Message.new(message_params)
+
 		#TODO: associate chatroom with developper and founder
 		@chatroom = Chatroom.find(params[:chatroom_id])
+    @message = Message.new(message_params)
 		@message.chatroom = @chatroom
-		@message.chatroom_id = @chatroom.id
-		@message.user_id = current_user.id
+		@message.user = current_user
 
 		if @message.save
-			redirect_to chatroom_path(@chatroom)
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+          render_to_string(partial: "messages/message", locals: { message: @message} )
+      )
+			# redirect_to chatroom_path(@chatroom)
 		else
 			render 'chatrooms/show', status: :unprocessable_entity
 		end

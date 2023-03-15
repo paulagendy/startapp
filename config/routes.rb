@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end
+  
   get "my_dev_profile", to: "developers#my_dev_profile", as: :my_dev_profile
 end
