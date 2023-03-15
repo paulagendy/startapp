@@ -1,6 +1,6 @@
 <main class="project-section">
   <div class=" card card-wrapper--main">
-    <div class="project--title-container">
+    <div class="project-title--container">
       <span class="project-subtitle">Project</span>
       <h1 class="project-title"><%= @project.name %></h1>
     </div>
@@ -22,29 +22,26 @@
     </div>
   </div>
   <div class=" card card-wrapper--main">
-    <div class="project--title-container">
-      <span class="project-subtitle">Recommandations</span>
-      <h1 class="project-title">Developper Picks</h1>
+    <div class="">
+      <div class="project-title--container">
+        <span class="project-subtitle">Recommandations</span>
+        <h1 class="project-title">Developper Picks</h1>
+      </div>
       <% @project.top_picks.each do |t| %>
-        <div>
-          <li><%= t.developer_profile.user.first_name %></li>
-          <li><%= t.developer_profile.user.last_name %></li>
-          <li><%= t.developer_profile.description %></li>
-          <li><%= t.developer_profile.school %></li>
-          <li><%= t.developer_profile.degree %></li>
-          <% t.developer_profile.user.technologies.each do |tec|%>
-          <li><%= tec.name %></li>
-          <% end %>
+        <div class="dev-container">
+          <div class="dev-info--container">
+            <img src="<%=t.developer_profile.avatar %>" alt="American portrait of developers" class="avatar-img dev-picks--avatar">
+            <div class="dev-info--text">
+              <h2 class="text--is-primary"><%= t.developer_profile.user.full_name %></h2>
+              <p><%= t.developer_profile.description %></p>
+            </div>
+          </div>
+          <%= link_to "See profile", developer_path(t.developer_profile), class: "main-btn full-w" %>
         </div>
         <br>
       <% end %>
     </div>
   </div>
-
-<%@project.top_picks.each do |top_pick| %>
-  <%= link_to "See profile", developer_path(top_pick.developer_profile), class: "main-btn" %>
-<% end %>
-
 </main>
 <style>
   .project-section {
@@ -55,7 +52,7 @@
     padding: 8px;
     margin-bottom: 12px;
   }
-  .project--title-container {
+  .project-title--container {
     padding-top: 8px;
     border-bottom: var( --stroke);
     margin-bottom: 24px;
@@ -76,7 +73,33 @@
     display: flex;
     justify-content: space-between;
   }
-  .main-btn {
-  justify-content: space-between;
- }
+
+  .main-btn.full-w {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .dev-container {
+    padding: 0 16px;
+    margin-bottom: 48px;
+  }
+  .dev-container:last-of-type {
+    margin-bottom: 0;
+  }
+  .dev-info--container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 16px;
+  }
+  .flex-grow {
+    flex-grow: 1;
+  }
+  .dev-picks--avatar {
+    width: 80px;
+    margin-right: 12px;
+  }
+  .mb-24px {
+    margin-bottom: 24px;
+  }
 </style>

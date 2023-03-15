@@ -1,10 +1,9 @@
-
 <main class="profile-page--wrapper">
   <div class="card dev-profile--info-wrapper">
     <div class="dev-profile--info-container">
       <div class="gradiented-card-cover">
       </div>
-      <img src="<%= @dev_pic %>" alt="A american portrait of a developer" class="avatar-img mt-80px">
+      <img src="<%= @dev_pic %>" alt="A american portrait of a developer" class="avatar-img mt-20">
       <h1 class="dev-profile--title">
         <%= @developer.user.first_name %> <%= @developer.user.last_name %>
       </h1>
@@ -51,7 +50,7 @@
     justify-content: center;
     background-color: var(--primary-container);
     border-radius: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 8px !important;
   }
   .gradiented-card-cover {
     position: absolute;
@@ -117,7 +116,9 @@
     font-weight: 600;
     font-size: 20px;
     color: var(--txt-secondary);
-    padding: 16px 32px;
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px 0;
   }
   .dev-profile--tech:nth-of-type(odd) {
     border-right: 1px solid rgba(18, 18, 18, 0.12);;
@@ -127,5 +128,8 @@
     font-weight: 500;
     line-height: 120%;
     color: var(--txt-secondary);
+  }
+  .mt-20 {
+    margin-top: 20px;
   }
 </style>
