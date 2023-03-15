@@ -72,7 +72,10 @@ developer_two = DeveloperProfile.create!(
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.second )
 # --------------------- Seeds for the SpokenLanguage --------------------- #
-DeveloperProfileSpokenLanguage.create!(developer_profile: developer_two, spoken_language: SpokenLanguage.first)
+DeveloperProfileSpokenLanguage.create!(
+  developer_profile: developer_two,
+  spoken_language: SpokenLanguage.first
+  )
 
 developer_three = DeveloperProfile.create!(
   user: becki,

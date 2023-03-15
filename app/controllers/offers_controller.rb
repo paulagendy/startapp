@@ -23,7 +23,8 @@ class OffersController < ApplicationController
   end
 
   def index
-    @offers = Offer.all
+    @project = Project.find(params[:project_id])
+    @offers = @project.offers
   end
 
   private
