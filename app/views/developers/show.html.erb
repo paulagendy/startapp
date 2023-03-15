@@ -10,6 +10,7 @@
       <span> <%= @developer.description %></span>
       <p class="dev-profile--sm-subtitle"> Speaks <%= @dev_languages.name %></p>
     </div>
+
     <div class="dev-profile--btn-container">
       <% unless current_user == @user %>
         <% if @existing_chatroom.nil? %>
@@ -18,7 +19,7 @@
           <%= button_to "Start Chat", chatroom_path(@existing_chatroom), method: :get %>
         <% end %>
       <% end %>
-      <%= button_to "Make an offer", new_developer_offer_path(@developer) %>
+      <%= button_to "Make an offer", new_developer_offer_path(@developer), method: :get %>
     </div>
   </div>
   <div class="card dev-profile--summary-wrapper">

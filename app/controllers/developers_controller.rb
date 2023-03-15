@@ -3,6 +3,12 @@ class DevelopersController < ApplicationController
     @developer = DeveloperProfile.new
   end
 
+  def my_dev_profile
+    @dev_profile = current_user.developer_profile
+    @chatroom = Chatroom.last
+    @offers = @dev_profile.offers
+  end
+
   def show
     @developer = DeveloperProfile.find(params[:id])
     @dev_technologies = @developer.technologies
@@ -24,9 +30,13 @@ class DevelopersController < ApplicationController
     end
   end
 
+  def index
+    @developers = developer.all
+  end
+
   def developer_pic
     @developers.all
-  end
+  end 
 
   private
 
