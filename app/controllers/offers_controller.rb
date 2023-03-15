@@ -17,19 +17,16 @@ class OffersController < ApplicationController
     @offer.developer_profile = @developer_profile
     @offer.project = current_user.projects.last
     if @offer.save
-      redirect_to project_path(@offer.project)
+
+      redirect_to project_offers_path(@offer.project)
     else
+
       render :new, status: :unprocessable_entity
     end
   end
 
   def index
-<<<<<<< HEAD
     @offers = current_user.projects.last.offers
-=======
-    @project = Project.find(params[:project_id])
-    @offers = @project.offers
->>>>>>> master
   end
 
   private
