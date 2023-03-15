@@ -15,16 +15,18 @@ class OffersController < ApplicationController
     @developer_profile = DeveloperProfile.find(params[:developer_id])
     @offer = Offer.new(offer_params)
     @offer.developer_profile = @developer_profile
+    @offer.project = current_user.projects.last
     if @offer.save
-      redirect_to project_path(@offer.project)
+
+      redirect_to project_offers_path(@offer.project)
     else
+
       render :new, status: :unprocessable_entity
     end
   end
 
   def index
-    @project = Project.find(params[:project_id])
-    @offers = @project.offers
+    @offers = current_user.projects.last.offers
   end
 
   private
@@ -32,6 +34,4 @@ class OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:houry_rate, :Number_of_hours, :project_id)
   end
-
-
 end
