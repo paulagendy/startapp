@@ -5,7 +5,6 @@ class OffersController < ApplicationController
     @developer_profile = DeveloperProfile.find(params[:developer_id])
     @developer_technologies = @developer_profile.technologies
     @user = @developer_profile.user
-      # raise
   end
 
   def show
@@ -17,6 +16,7 @@ class OffersController < ApplicationController
     @developer_profile = DeveloperProfile.find(params[:developer_id])
     @offer = Offer.new(offer_params)
     @offer.developer_profile = @developer_profile
+    @offer.project = current_user.projects.last
     if @offer.save
       redirect_to project_path(@offer.project)
     else
