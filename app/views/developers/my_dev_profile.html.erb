@@ -1,0 +1,24 @@
+<main>
+  <h1>Dev Dashboards</h1>
+  <ul>
+    <% @offers.each do |offer| %>
+      <li>
+        <p><%= offer.project.name %></p>
+        <p><%= offer.status %></p>
+        <%# Use simpleform to update the state of the status variable %>
+        <%= simple_form_for offer do |f| %>
+          <%= f.input :status, collection: ["pending", "accepted", "rejected"] %>
+          <%= f.submit "Update" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= button_to "Start Chat", chatroom_path(@chatroom) %>
+</main>
+
+<style>
+  main {
+  	display: grid;
+  	place-content: center
+  }
+</style>

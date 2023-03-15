@@ -23,10 +23,16 @@ class OffersController < ApplicationController
     end
   end
 
+  def update
+    @offer = Offer.find(params[:id])
+    @offer.update(offer_params)
+    redirect_to project_path(@offer.project)
+  end
+
   private
 
   def offer_params
-    params.require(:offer).permit(:houry_rate, :Number_of_hours, :project_id)
+    params.require(:offer).permit(:houry_rate, :Number_of_hours,:status, :project_id)
   end
 
 

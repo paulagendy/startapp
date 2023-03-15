@@ -3,13 +3,17 @@ class DevelopersController < ApplicationController
     @developer = DeveloperProfile.new
   end
 
+  def my_dev_profile
+    @dev_profile = current_user.developer_profile
+    @chatroom = Chatroom.last
+    @offers = @dev_profile.offers
+  end
+
   def show
     @developer = DeveloperProfile.find(params[:id])
     @dev_technologies = @developer.technologies
     @dev_languages = @developer.spoken_languages.first
     @dev_pic = @developer.avatar
-    # Here is where I want to create a chatroom if one does not exist
-    @existing_chatroom = Chatroom.get_chatroom(current_user, @developer.user).first
   end
 
   def create
@@ -25,7 +29,7 @@ class DevelopersController < ApplicationController
 
   def developer_pic
     @developers.all
-  end
+  end 
 
   private
 
