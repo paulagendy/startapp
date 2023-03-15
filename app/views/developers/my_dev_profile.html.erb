@@ -13,7 +13,7 @@
       </li>
     <% end %>
   </ul>
-  <%= button_to "Start Chat", chatroom_path(@chatroom) %>
+  <%= button_to "Open Chat", chatroom_path(@chatroom), method: :get %>
 </main>
 
 <style>

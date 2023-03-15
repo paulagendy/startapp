@@ -1,6 +1,7 @@
 DeveloperProfileTechnology.destroy_all
 DeveloperProfileSpokenLanguage.destroy_all
 TopPick.destroy_all
+Offer.destroy_all
 DeveloperProfile.destroy_all
 ProjectTechnology.destroy_all
 Project.destroy_all
@@ -161,27 +162,17 @@ puts "project done"
 # login as jenn and contact anthony
 Offer.create!(
   project_id: project_from_jenn.id,
-  developer_id: anthony_profile.id,
+  developer_profile_id: anthony_profile.id,
   hourly_rate: 44,
-  number_of_hours: 35,
+  Number_of_hours: 35,
   status: 0
 )
 Chatroom.create!(
-  name: "Chatroom Test",
+  name: "Chatroom From Seed",
   founder_id: jenn.id,
   developer_id: anthony.id
 )
-message_one = Message.create!(
-  content: "Oh hey Developer",
-  chatroom: chatroom_one,
-  user: obonekenobi
-)
 
-message_two = Message.create!(
-  content: "Oh Hey Founder",
-  chatroom: chatroom_one,
-  user: anthony
-)
 puts "Generating chatroom done"
 #  for seed for chatroom END
 
