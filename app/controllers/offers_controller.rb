@@ -5,6 +5,7 @@ class OffersController < ApplicationController
     @developer_profile = DeveloperProfile.find(params[:developer_id])
     @developer_technologies = @developer_profile.technologies
     @user = @developer_profile.user
+      # raise
   end
 
   def show
@@ -22,18 +23,14 @@ class OffersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
   def index
     @offers = current_user.projects.last.offers
   end
-
-
-
 
   private
 
   def offer_params
     params.require(:offer).permit(:houry_rate, :Number_of_hours, :project_id)
   end
-
-
 end
