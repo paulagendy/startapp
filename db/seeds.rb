@@ -1,6 +1,7 @@
 DeveloperProfileTechnology.destroy_all
 DeveloperProfileSpokenLanguage.destroy_all
 TopPick.destroy_all
+Offer.destroy_all
 DeveloperProfile.destroy_all
 ProjectTechnology.destroy_all
 Project.destroy_all
@@ -22,7 +23,7 @@ spoken_lang.each do |lang|
 end
 
 puts "adding the variables done "
-# -------------------- Seeds for the developers starts here -------------------- #
+
 bob = User.create!(email: 'bob@email.com', password: '123456', nickname: "Bob Extra", role:2,first_name:'Bob', last_name:'Al Koukou' )
 anthony = User.create!(email: 'anthony@email.com', password: '123456', nickname: "Anthony Super", role:2, first_name:'Anthony', last_name:'Amin' )
 steven = User.create!(email: 'Steven@email.com', password: '123456', nickname: "Steven Amazed", role:2, first_name:'Steven', last_name:'Andrade' )
@@ -32,9 +33,7 @@ max = User.create!(email: 'max@email.com', password: '123456', role:2, first_nam
 amanda = User.create!(email: 'amanda@email.com', password: '123456', role:2, first_name:'Amanda', last_name:'Doulcet' )
 puts "developers done "
 
-# --------------------- Seeds for the developper profile --------------------- #
-# DeveloperProfile.create!(user: bob, school: 'University of Toronto', degree: 'Bachelor in Computer Science', years_of_experience:0, developer_profile_technologies: Technology.first)
-developer_one = DeveloperProfile.create!(
+anthony_profile = DeveloperProfile.create!(
   user: anthony,
   school: 'University of Waterloo',
   degree: 'Master in Computer Science',
@@ -44,18 +43,17 @@ developer_one = DeveloperProfile.create!(
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678723688/hurjtaf30nmwkr3z7yel.jpg"
 )
 
-# --------------------- Seeds for the technology --------------------- #
 DeveloperProfileTechnology.create!(
-  developer_profile: developer_one,
+  developer_profile: anthony_profile,
   technology: Technology.first
 )
 DeveloperProfileTechnology.create!(
-  developer_profile: developer_one,
+  developer_profile: anthony_profile,
   technology: Technology.second
 )
-# --------------------- Seeds for the SpokenLanguage --------------------- #
+
 DeveloperProfileSpokenLanguage.create!(
-  developer_profile: developer_one,
+  developer_profile: anthony_profile,
   spoken_language: SpokenLanguage.first
 )
 
@@ -68,14 +66,12 @@ developer_two = DeveloperProfile.create!(
   bio: "Passionate front-end developer with 8 years of experience in creating beautiful and functional websites. I have a strong background in HTML, CSS, JavaScript, and responsive design, and I constantly strive to stay up-to-date with the latest web technologies and trends.",
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678730658/ghngcdj8sbxuw5wsym6z.jpg"
 )
-# --------------------- Seeds for the technology --------------------- #
+
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.second )
-# --------------------- Seeds for the SpokenLanguage --------------------- #
-DeveloperProfileSpokenLanguage.create!(
-  developer_profile: developer_two,
-  spoken_language: SpokenLanguage.first
-  )
+
+
+DeveloperProfileSpokenLanguage.create!(developer_profile: developer_two, spoken_language: SpokenLanguage.first)
 
 developer_three = DeveloperProfile.create!(
   user: becki,
@@ -86,10 +82,10 @@ developer_three = DeveloperProfile.create!(
   bio: "Front-end developer with a knack for crafting stunning and seamless websites. With 3 years of experience in the field, I have honed my skills in HTML, CSS, JavaScript, and responsive design to build top-notch websites that engage users and drive results.",
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678731134/mfzlz1zhipkndiszpzg5.jpg"
 )
-# --------------------- Seeds for the technology --------------------- #
+
 DeveloperProfileTechnology.create!(developer_profile: developer_three, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_three, technology: Technology.second )
-# --------------------- Seeds for the SpokenLanguage --------------------- #
+
 DeveloperProfileSpokenLanguage.create!(developer_profile: developer_three, spoken_language: SpokenLanguage.first)
 
 developer_fourth = DeveloperProfile.create!(
@@ -119,18 +115,17 @@ obonekenobi = User.create!(email: 'obonekenobi@email.com', password: '123456', r
 matteo = User.create!(email: 'matteo@email.com', password: '123456', role:1, first_name:'Matteo', last_name:'Duran', nickname:'Matteo Marvey' )
 markcuban = User.create!(email: 'markcuban@email.com', password: '123456', role:1, first_name:'Mark', last_name:'Cuban' )
 chucknorris = User.create!(email: 'chucknorris@email.com', password: '123456', role:1, first_name:'Chuck', last_name:'Norris' )
-# add the spoken languages
 puts "founders done"
 
-# -------------------- Seeds for the projects starts here -------------------- #
-project_one = Project.create!(
-  user: jenn, name: 'BuzzOn',
+project_from_jenn = Project.create!(
+  user: jenn,
+  name: 'BuzzOn',
   description: 'A social media platform that connects users with local events and activities based on their interests and location.',
   industry: 'Social Media',
   spoken_language: SpokenLanguage.first
 )
-ProjectTechnology.create!(project: project_one, technology: Technology.first )
-ProjectTechnology.create!(project: project_one, technology: Technology.second )
+ProjectTechnology.create!(project: project_from_jenn, technology: Technology.first )
+ProjectTechnology.create!(project: project_from_jenn, technology: Technology.second )
 
 Project.create!(
   user: obonekenobi,
@@ -162,18 +157,23 @@ Project.create!(
 )
 puts "project done"
 
-# Creating
-chatroom_one = Chatroom.create!(name: "Chatroom Test", founder_id: obonekenobi.id, developer_id: anthony.id)
+# START for seed for chatroom
 
-message_one = Message.create!(
-  content: "Oh hey Developer",
-  chatroom: chatroom_one,
-  user: obonekenobi
+# IMPORTANT: Here are gonna be the logged in info for the presentation
+# login as jenn and contact anthony
+Offer.create!(
+  project_id: project_from_jenn.id,
+  developer_profile_id: anthony_profile.id,
+  hourly_rate: 44,
+  Number_of_hours: 35,
+  status: 0
+)
+Chatroom.create!(
+  name: "Chatroom From Seed",
+  founder_id: jenn.id,
+  developer_id: anthony.id
 )
 
-message_two = Message.create!(
-  content: "Oh Hey Founder",
-  chatroom: chatroom_one,
-  user: anthony
-)
 puts "Generating chatroom done"
+#  for seed for chatroom END
+
