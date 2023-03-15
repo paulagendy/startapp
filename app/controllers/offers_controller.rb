@@ -26,6 +26,9 @@ class OffersController < ApplicationController
     @offers = current_user.projects.last.offers
   end
 
+
+
+
   private
 
   def offer_params
