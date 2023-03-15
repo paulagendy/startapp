@@ -26,7 +26,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:houry_rate, :Number_of_hours, :project_id)
+    params.require(:offer).permit(:houry_rate, :Number_of_hours,)
   end
 
 
