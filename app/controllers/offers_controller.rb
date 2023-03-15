@@ -1,5 +1,4 @@
 class OffersController < ApplicationController
-
   def new
     @offer = Offer.new
     @developer_profile = DeveloperProfile.find(params[:developer_id])
@@ -21,6 +20,11 @@ class OffersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @project = Project.find(params[:project_id])
+    @offers = @project.offers
   end
 
   private

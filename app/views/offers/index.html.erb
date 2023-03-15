@@ -1,0 +1,13 @@
+<h1>Offer Statuses</h1>
+<div class=" card card-wrapper--main">
+  <% @offers.each do |offer|%>
+    <div class="offer-title-container">
+      <li><%= offer.developer_profile.user.full_name %> </li>
+       <% offer.developer_profile.technologies.each do |tech| %>
+        <li><%= tech.name %></li>
+     <li><%= offer.status %></li>
+      <% end %>
+    </div>
+    <%= link_to "see profile" ,developer_path(offer.developer_profile)  %>
+  <% end %>
+</div>
