@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :offers, only: [:create, :new]
   end
   resources :projects, only: [:create, :show, :new]
-  resources :chatrooms, only: [:show, :create, :new] do
+  resources :chatrooms, only: [:show, :create,] do
     resources :messages, only: :create
   end
 end

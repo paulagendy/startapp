@@ -9,7 +9,7 @@ class DevelopersController < ApplicationController
     @dev_languages = @developer.spoken_languages.first
     @dev_pic = @developer.avatar
     # Here is where I want to create a chatroom if one does not exist
-    @existing_chatroom = Chatroom.get_chatroom(current_user, @developer.user).first
+    @existing_chatroom = Chatroom.between(current_user, @developer.user)
   end
 
 
