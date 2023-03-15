@@ -24,6 +24,10 @@ class DevelopersController < ApplicationController
     end
   end
 
+  def index
+    @developers = developer.all
+  end
+
   def developer_pic
     @developers.all
   end

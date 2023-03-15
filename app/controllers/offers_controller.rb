@@ -1,5 +1,4 @@
 class OffersController < ApplicationController
-
   def new
     @offer = Offer.new
     @developer_profile = DeveloperProfile.find(params[:developer_id])
@@ -25,7 +24,12 @@ class OffersController < ApplicationController
   end
 
   def index
+<<<<<<< HEAD
     @offers = current_user.projects.last.offers
+=======
+    @project = Project.find(params[:project_id])
+    @offers = @project.offers
+>>>>>>> master
   end
 
   private
