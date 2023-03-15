@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   resources :developers, only: [:create, :show, :new, :index] do
     resources :offers, only: [:create, :new]
   end
-
   resources :projects, only: [:create, :show, :new] do
     resources :offers, only: [:index]
   end
-
   resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end

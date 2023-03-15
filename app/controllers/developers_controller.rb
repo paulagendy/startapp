@@ -12,6 +12,7 @@ class DevelopersController < ApplicationController
     @existing_chatroom = Chatroom.get_chatroom(current_user, @developer.user).first
   end
 
+
   def create
     @developer = DeveloperProfile.new(developer_params)
     @developer.user = current_user
