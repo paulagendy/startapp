@@ -70,6 +70,7 @@ developer_two = DeveloperProfile.create!(
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_two, technology: Technology.second )
 
+
 DeveloperProfileSpokenLanguage.create!(developer_profile: developer_two, spoken_language: SpokenLanguage.first)
 
 developer_three = DeveloperProfile.create!(

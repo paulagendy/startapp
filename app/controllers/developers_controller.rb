@@ -16,6 +16,7 @@ class DevelopersController < ApplicationController
     @dev_pic = @developer.avatar
   end
 
+
   def create
     @developer = DeveloperProfile.new(developer_params)
     @developer.user = current_user
@@ -25,6 +26,10 @@ class DevelopersController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def index
+    @developers = developer.all
   end
 
   def developer_pic
