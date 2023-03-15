@@ -39,7 +39,7 @@ developer_one = DeveloperProfile.create!(
   school: 'University of Waterloo',
   degree: 'Master in Computer Science',
   years_of_experience:5,
-  description: 'i need a job',
+  description: 'I bring ideas to life through programming.',
   bio: "Seasoned back-end developer with 12 years of experience building robust, scalable, and secure web applications. I have a deep understanding of programming languages such as Java, Python, and PHP, and I specialize in working with databases, APIs, and server-side technologies.",
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678723688/hurjtaf30nmwkr3z7yel.jpg"
 )
@@ -79,7 +79,7 @@ developer_three = DeveloperProfile.create!(
   school: 'University of Texas',
   degree: "Master's in Data Science",
   years_of_experience:4,
-  description:'hire me im good for it',
+  description:'I love div soups',
   bio: "Front-end developer with a knack for crafting stunning and seamless websites. With 3 years of experience in the field, I have honed my skills in HTML, CSS, JavaScript, and responsive design to build top-notch websites that engage users and drive results.",
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678731134/mfzlz1zhipkndiszpzg5.jpg"
 )
@@ -91,8 +91,10 @@ DeveloperProfileSpokenLanguage.create!(developer_profile: developer_three, spoke
 
 developer_fourth = DeveloperProfile.create!(
   user: max,
-  school: 'University of California', degree: 'Master of Science in Artificial Intelligence',
+  school: 'University of California',
+  degree: 'Master of Science in Artificial Intelligence',
   years_of_experience:2,
+  description: "I solve problems with technology."
 )
 DeveloperProfileTechnology.create!(developer_profile: developer_fourth, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_fourth, technology: Technology.second )
@@ -109,9 +111,9 @@ DeveloperProfileTechnology.create!(developer_profile: developer_fifth, technolog
 DeveloperProfileSpokenLanguage.create!(developer_profile: developer_fifth, spoken_language: SpokenLanguage.first)
 puts 'developer profile done'
 
-jenn = User.create!(email: 'jenn@email.com', password: '123456', role:1, first_name:'Jenn', last_name:'Gendy' )
-obonekenobi = User.create!(email: 'obonekenobi@email.com', password: '123456', role:1, first_name:'Obone', last_name:'Kenobi' )
-matteo = User.create!(email: 'matteo@email.com', password: '123456', role:1, first_name:'Matteo', last_name:'Duran' )
+jenn = User.create!(email: 'jenn@email.com', password: '123456', role:1, first_name:'Jenn', last_name:'Gendy', nickname:'Jenny Super' )
+obonekenobi = User.create!(email: 'obonekenobi@email.com', password: '123456', role:1, first_name:'Obone', last_name:'Kenobi',nickname:'Obee Dazee' )
+matteo = User.create!(email: 'matteo@email.com', password: '123456', role:1, first_name:'Matteo', last_name:'Duran', nickname:'Matteo Marvey' )
 markcuban = User.create!(email: 'markcuban@email.com', password: '123456', role:1, first_name:'Mark', last_name:'Cuban' )
 chucknorris = User.create!(email: 'chucknorris@email.com', password: '123456', role:1, first_name:'Chuck', last_name:'Norris' )
 # add the spoken languages
