@@ -2,22 +2,66 @@
      data-controller="chatroom-subscription"
      data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" >
   <h1><%= @chatroom.name %></h1>
-  <div class="messages" data-chatroom-subscription-target="messages" >
+  <div class="messages messages--wrapper" data-chatroom-subscription-target="messages" >
     <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
     <% end %>
   </div>
   <%= simple_form_for [@chatroom, @message],
-    html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f|
+    html: {data: {action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex form-submit--wrapper"} do |f|
   %>
-  <%= f.input :content,
-      label: false,
-      placeholder: "Message ##{@chatroom.name}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
+  <div class="form-submit--container">
+    <%= f.input :content,
+        label: false,
+        placeholder: "Message",
+        wrapper_html: {class: "chatroom-field"}
+      %>
+    <%= f.submit "Send", class: "btn-primary chatroom-submit" %>
+  <% end %>
 </div>
 <style>
-  
+  .form-submit--wrapper {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 8px 24px;
+  background-color: hsla(44, 100%, 98%, 1)
+  }
+  .form-submit--container {
+    width: 100%;
+    display: flex;
+  }
+  .chatroom-field  {
+    flex-grow: 1;
+    height: 100%;
+    margin-right: 2px;
+  }
+  .chatroom-field input  {
+    border-radius: 4px 2px 2px 4px;
+    height: 100%;
+  }
+  .btn-primary.chatroom-submit {
+    flex-grow: 0;
+    width: fit-content;
+    border-radius: 2px 4px 4px 2px;
+
+  }
+  .messages--wrapper .chatroom-msg--container:nth-of-type(odd) {
+    background-color: #404C00;
+    color: #D8ED7C;
+    padding: 16px;
+    margin-left: 60px;
+    margin-bottom: 16px;
+    border-radius: 16px 16px 2px 16px;
+
+  }
+  .messages--wrapper .chatroom-msg--container:nth-of-type(even) {
+    background-color: #D8ED7C;
+    color: #404C00;
+    padding: 16px;
+    margin-right: 60px;
+    margin-bottom: 16px;
+    border-radius: 16px 16px 16px 2px;
+  }
 </style>
