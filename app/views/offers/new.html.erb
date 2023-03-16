@@ -5,7 +5,7 @@
       <div class="gradiented-card-cover">
       </div>
       <img src="<%= @developer_profile.avatar %>" alt="A american portrait of a developer" class="avatar-img mt-20">
-      <h2 class="dev-profile--title">
+      <h2 class="text--is-primary">
         <%= @user.full_name %>
       </h2>
       <span> <%= @developer_profile.description %></span>
@@ -16,9 +16,9 @@
       <h2 class="card-label mb-16">Your offer</h2>
       <%# TODO: make sure it sends the form submission to offer %>
       <%= simple_form_for([@developer_profile, @offer], url: developer_offers_path(@developer_profile)) do |f| %>
-        <h3 class = "hours_number">Number of hours</h3>
+        <p class = "number-field--label">Number of hours</p>
         <%= f.number_field :Number_of_hours %>
-        <h3 class ="hourly_rate">Hourly Rate</h3>
+        <p class ="number-field--label">Hourly Rate</p>
         <%= f.number_field :hourly_rate %>
         <%# TODO: Add custom label %>
         <%= f.submit %>
@@ -29,5 +29,14 @@
 <style>
   .offer-wrapper {
     padding: 0 24px;
+  }
+  .number-field--label {
+    font-size: 14px;
+    font-weight: 450;
+    color: #404C00;
+    margin-bottom: 8px;
+  }
+  .number-field--label:last-of-type {
+    margin-top: 16px;
   }
 </style>

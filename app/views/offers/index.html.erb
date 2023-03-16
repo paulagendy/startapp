@@ -6,8 +6,8 @@
         <div class="space-between">
           <img src="<%= offer.developer_profile.avatar %>" alt="A american portrait of a developer" class="avatar-img mb-24">
           <div class="offer--dev-title--container">
-            <%= offer.developer_profile.user.full_name %>
-            <%= offer.developer_profile.description %>
+            <h3 class="text--is-primary"><%= offer.developer_profile.user.full_name %></h3>
+            <p><%= offer.developer_profile.description %></p>
           </div>
         </div>
         <div class="space-between align-right">
@@ -15,13 +15,16 @@
             <i class="status-chip--decarator"></i>
             <span>Offer <%= offer.status %></span>
           </div>
-          <%= link_to "See Profile" ,developer_path(offer.developer_profile)  %>
+          <%= link_to "See Profile" ,developer_path(offer.developer_profile), class: "btn-secondary"  %>
         </div>
       </div>
     <% end %>
   </div>
 </main>
 <style>
+  p {
+    margin-bottom: 0;
+  }
   .offer-status--wrapper {
     padding: 0 24px;
   }
@@ -57,5 +60,12 @@
     width: 8px;
     height: 8px;
     border-radius: 1vw;
+  }
+  .btn-secondary {
+    text-decoration: none;
+    background-color: var(--secondary-container);
+    color: var(--on-secondary);
+    border-radius: 4px;
+    padding: 8px 16px;
   }
 </style>
