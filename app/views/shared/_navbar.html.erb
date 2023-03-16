@@ -7,9 +7,9 @@
       <% if current_user.founder? %>
         <% unless current_user.projects.last.nil? %>
           <%= link_to "Projects", project_path(current_user.projects.last), class: "nav-link" %>
-        <% end %>
-        <% unless current_user.projects.last.offers.empty? %>
-          <%= link_to "Offers",  project_offers_path(current_user.projects.last), class: "nav-link" %>
+          <% unless current_user.projects.last.offers.empty? %>
+            <%= link_to "Offers",  project_offers_path(current_user.projects.last), class: "nav-link" %>
+          <% end %>
         <% end %>
         <% unless current_user.founder_chatrooms.last.nil?%>
           <%= link_to "Inbox", chatroom_path(current_user.founder_chatrooms.last), class: "nav-link" %>

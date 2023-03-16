@@ -30,13 +30,16 @@
       <% @project.top_picks.each do |t| %>
         <div class="dev-container">
           <div class="dev-info--container">
-            <img src="<%=t.developer_profile.avatar %>" alt="American portrait of developers" class="avatar-img dev-picks--avatar">
+            <img src="<%= t.developer_profile.avatar %>" alt="American portrait of developers" class="avatar-img dev-picks--avatar">
             <div class="dev-info--text">
               <h2 class="text--is-primary"><%= t.developer_profile.user.full_name %></h2>
               <p><%= t.developer_profile.description %></p>
             </div>
           </div>
-          <%= link_to "See profile", developer_path(t.developer_profile), class: "main-btn full-w" %>
+          <div class="dev-profile--btn-container">
+            <%= button_to "See profile", developer_path(t.developer_profile), method: :get %>
+            <%= button_to "Make an offer", new_developer_offer_path(t.developer_profile), method: :get %>
+          </div>
         </div>
         <br>
       <% end %>
@@ -101,5 +104,18 @@
   }
   .mb-24px {
     margin-bottom: 24px;
+  }
+
+  .dev-profile--btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px
+  }
+  .dev-profile--btn-container  > * {
+    flex-grow: 1;
+  }
+   .dev-profile--btn-container  > * > * {
+    width: 100%;
   }
 </style>
