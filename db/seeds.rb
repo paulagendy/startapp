@@ -26,11 +26,11 @@ puts "adding the variables done "
 
 # bob = User.create!(email: 'bob@email.com', password: '123456', nickname: "Bob Extra", role:2,first_name:'Bob', last_name:'Al Koukou' )
 anthony = User.create!(email: 'anthony@email.com', password: '123456', nickname: "Anthony Super", role:2, first_name:'Anthony', last_name:'Amin' )
-steven = User.create!(email: 'Steven@email.com', password: '123456', nickname: "Steven Amazed", role:2, first_name:'Steven', last_name:'Andrade' )
+amanda = User.create!(email: 'amanda@email.com', password: '123456', nickname: "Amanda Amazed", role:2, first_name:'Steven', last_name:'Andrade' )
 # samantha = User.create!(email: 'samantha@email.com',nickname: "Samantha Wowza", password: '123456', role:2, first_name:'Samantha', last_name:'Bruderlein' )
-becki = User.create!(email: 'becki@email.com', password: '123456', role:2, first_name:'Becki', last_name:'Belai' )
-max = User.create!(email: 'max@email.com', password: '123456', role:2, first_name:'Max', last_name:'Di Fiore' )
-amanda = User.create!(email: 'amanda@email.com', password: '123456', role:2, first_name:'Amanda', last_name:'Doulcet' )
+max = User.create!(email: 'Max@email.com', password: '123456', role:2, first_name:'Max', last_name:'Belai' )
+
+# amanda = User.create!(email: 'amanda@email.com', password: '123456', role:2, first_name:'Amanda', last_name:'Doulcet' )
 puts "developers done "
 
 anthony_profile = DeveloperProfile.create!(
@@ -97,7 +97,7 @@ developer_fourth = DeveloperProfile.create!(
 )
 DeveloperProfileTechnology.create!(developer_profile: developer_fourth, technology: Technology.first )
 DeveloperProfileTechnology.create!(developer_profile: developer_fourth, technology: Technology.second )
-DeveloperProfileSpokenLanguage.create!(developer_profile: developer_fourth, spoken_language: SpokenLanguage.fourth)
+DeveloperProfileSpokenLanguage.create!(developer_profile: developer_fourth, spoken_language: SpokenLanguage.first)
 
 developer_fifth = DeveloperProfile.create!(
   user: amanda,
@@ -115,6 +115,7 @@ obonekenobi = User.create!(email: 'obonekenobi@email.com', password: '123456', r
 matteo = User.create!(email: 'matteo@email.com', password: '123456', role:1, first_name:'Matteo', last_name:'Duran', nickname:'Matteo Marvey' )
 markcuban = User.create!(email: 'markcuban@email.com', password: '123456', role:1, first_name:'Mark', last_name:'Cuban' )
 chucknorris = User.create!(email: 'chucknorris@email.com', password: '123456', role:1, first_name:'Chuck', last_name:'Norris' )
+hiyabel = User.create!(email: 'hiyabelbelai@gmail.com', password: '123456', role:1, first_name:'Hiyabel', last_name:'Belai' )
 puts "founders done"
 
 project_from_jenn = Project.create!(
