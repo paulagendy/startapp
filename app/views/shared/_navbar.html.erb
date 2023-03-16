@@ -5,8 +5,10 @@
   <div class="navbar--float-right--container">
     <% if user_signed_in? %>
       <% unless current_user.projects.last.nil? %>
-        <%= link_to "Offer",  project_offers_path(current_user.projects.last), class: "nav-link" %>
-        <%= link_to "Inbox", chatroom_path(@project.user.founder_chatrooms.last), class: "nav-link" %>
+        <%= link_to "Offers",  project_offers_path(current_user.projects.last), class: "nav-link" %>
+      <% end %>
+      <% unless current_user.founder_chatrooms.last.nil?%>
+        <%= link_to "Inbox", chatroom_path(current_user.founder_chatrooms.last), class: "nav-link" %>
       <% end %>
       <%# HERE is the link to redirest to the developer dashboards %>
       <%# <%= link_to "My developer profile", my_dev_profile_path %>
