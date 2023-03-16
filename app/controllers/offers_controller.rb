@@ -30,7 +30,7 @@ class OffersController < ApplicationController
     @offer.update(offer_params)
     redirect_to project_path(@offer.project)
   end
-  
+
   def index
     @offers = current_user.projects.last.offers
 

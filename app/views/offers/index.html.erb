@@ -2,12 +2,14 @@
 <div class=" card card-wrapper--main">
   <% @offers.each do |offer|%>
     <div class="offer-title-container">
-      <li><%= offer.developer_profile.user.full_name %> </li>
-       <% offer.developer_profile.technologies.each do |tech| %>
-        <li><%= tech.name %></li>
-     <li><%= offer.status %></li>
+      <img src="<%= offer.developer_profile.avatar %>" alt="A american portrait of a developer" class="avatar-img mt-20">
+      <%= offer.developer_profile.user.full_name %>
+      <% offer.developer_profile.technologies.each do |tech| %>
+        <%= tech.name %>
+        <%= offer.status %>
       <% end %>
     </div>
-    <%= link_to "see profile" ,developer_path(offer.developer_profile)  %>
+    <%= link_to "See Profile" ,developer_path(offer.developer_profile)  %>
   <% end %>
 </div>
+<style></style>
