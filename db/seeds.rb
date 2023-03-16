@@ -30,7 +30,7 @@ puts "adding the variables done "
 anthony = User.create!(email: 'anthony@email.com', password: '123456', nickname: "Anthony Super", role:2, first_name:'Anthony', last_name:'Amin' )
 amanda = User.create!(email: 'amanda@email.com', password: '123456', nickname: "Amanda Amazed", role:2, first_name:'Amanda', last_name:'Andrade' )
 # samantha = User.create!(email: 'samantha@email.com',nickname: "Samantha Wowza", password: '123456', role:2, first_name:'Samantha', last_name:'Bruderlein' )
-max = User.create!(email: 'Max@email.com', password: '123456', role:2, first_name:'Max', last_name:'West' )
+max = User.create!(email: 'max@email.com', password: '123456', role:2, first_name:'Max', last_name:'West' )
 
 # amanda = User.create!(email: 'amanda@email.com', password: '123456', role:2, first_name:'Amanda', last_name:'Doulcet' )
 puts "developers done "
