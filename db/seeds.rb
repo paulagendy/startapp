@@ -38,7 +38,7 @@ anthony_profile = DeveloperProfile.create!(
   school: 'University of Waterloo',
   degree: 'Master in Computer Science',
   years_of_experience:5,
-  description: 'I bring ideas to life through programming.',
+  description: 'I heard there was alot of bucks to made in it.',
   bio: "Seasoned back-end developer with 12 years of experience building robust, scalable, and secure web applications. I have a deep understanding of programming languages such as Java, Python, and PHP, and I specialize in working with databases, APIs, and server-side technologies.",
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678723688/hurjtaf30nmwkr3z7yel.jpg"
 )
@@ -176,4 +176,3 @@ Chatroom.create!(
 
 puts "Generating chatroom done"
 #  for seed for chatroom END
-
