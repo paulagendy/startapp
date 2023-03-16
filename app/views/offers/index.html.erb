@@ -1,13 +1,102 @@
-<h1>Offer Statuses</h1>
-<div class=" card card-wrapper--main">
+<main class="offer-status--wrapper">
+  <h1 class="headline-display">Offer Statuses</h1>
   <% @offers.each do |offer|%>
-    <div class="offer-title-container">
-      <li><%= offer.developer_profile.user.full_name %> </li>
-       <% offer.developer_profile.technologies.each do |tech| %>
-        <li><%= tech.name %></li>
-     <li><%= offer.status %></li>
-      <% end %>
+    <div class="card offer--status-card--wrapper">
+      <div class="offer--dev--wrapper">
+        <div class="space-between">
+          <img src="<%= offer.developer_profile.avatar %>" alt="A american portrait of a developer" class="avatar-img mb-24">
+          <div class="offer--dev-title--container">
+            <h3 class="text--is-primary"><%= offer.developer_profile.user.full_name %></h3>
+            <p><%= offer.developer_profile.description %></p>
+          </div>
+        </div>
+        <div class="space-between align-right">
+          <div class="status-chip <%= offer.status %>">
+            <i class="status-chip--decarator"></i>
+            <span>Offer <%= offer.status.capitalize %></span>
+          </div>
+          <%= link_to "See Profile" ,developer_path(offer.developer_profile), class: "btn-secondary"  %>
+        </div>
+      </div>
     </div>
-    <%= link_to "see profile" ,developer_path(offer.developer_profile)  %>
   <% end %>
-</div>
+</main>
+<style>
+  p {
+    margin-bottom: 0;
+  }
+  .offer-status--wrapper {
+    padding: 0 24px;
+  }
+  .offer--dev--wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .align-right {
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .card.offer--status-card--wrapper {
+    padding:24px 12px;
+  }
+  /* START of status chip */
+  .status-chip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px 8px 8px;
+    gap: 6px;
+    border-radius: 100vw;
+  }
+
+  .status-chip.pending {
+    background: hsla(60, 22%, 86%, 1);
+  }
+  .status-chip.accepted {
+    background: rgba(216, 237, 124, 0.7);
+  }
+
+  .status-chip.rejected {
+    background: hsla(6, 100%, 92%, 1);
+  }
+
+  .status-chip .status-chip--decarator {
+    width: 8px;
+    height: 8px;
+    border-radius: 1vw;
+    background: #46483C;
+  }
+  .status-chip.pending  .status-chip--decarator {
+    background: #46483C;
+  }
+   .status-chip.pending  span{
+    color: #46483C;
+  }
+
+  .status-chip.accepted .status-chip--decarator {
+    background: #D8ED7C;
+  }
+
+  .status-chip.accepted span {
+    color: #D8ED7C;
+  }
+  .status-chip.rejected .status-chip--decarator {
+    background:#410002;
+  }
+  .status-chip.rejected span {
+    color:#410002;
+  }
+  /* END of status chip */
+  .btn-secondary {
+    text-decoration: none;
+    background-color: var(--secondary-container);
+    color: var(--on-secondary);
+    border-radius: 4px;
+    padding: 8px 16px;
+  }
+</style>

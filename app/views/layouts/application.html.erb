@@ -11,7 +11,6 @@
     <meta property="og:image" content="<%= meta_image %>" />
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
-
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="<%= DEFAULT_META["twitter_account"] %>">
@@ -19,8 +18,6 @@
     <meta name="twitter:description" content="<%= meta_description %>">
     <meta name="twitter:creator" content="<%= DEFAULT_META["twitter_account"] %>">
     <meta name="twitter:image:src" content="<%= meta_image %>">
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -57,9 +54,16 @@
   body {
     accent-color: #D8ED7C !important;
   }
-  h1, h2 {
+  h1, h2, h3, h4, h5, h6 {
     color: var(--txt-primary);
     font-family: mona;
+  }
+  .headline-display {
+  		font-size: 64px;
+  		font-weight: 550;
+  		line-height: 1;
+      margin-top: 100px;
+      margin-bottom: 60px;
   }
   .card {
     background: var(--surface-z2);
@@ -104,5 +108,51 @@
     color: var(--on-primary);
     border: 1px solid var(--on-primary);
     font-weight: 500;
+  }
+  .gradiented-card-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: radial-gradient(60% 460% at 33.33% 68.33%, #FFFFFF 0%, #FFFFFF 45.41%, rgba(255, 255, 255, 0) 100%);
+  }
+  .dev-profile--title {
+    font-family: mona;
+    font-weight: 560;
+    font-size: 32px;
+    margin-top: 16px;
+  }
+  .dev-profile--info-container {
+    text-align: center;
+  }
+  .dev-profile--info-container > * {
+    position: relative;
+    z-index: 2;
+  }
+  .dev-profile--info-container .gradiented-card-cover  {
+    position: absolute;
+    z-index: 1;
+    border-bottom: var(--stroke);
+  }
+  .card-label {
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 8px 12px;
+    font-weight: 500;
+    font-size: 18px;
+    background: #E3E3D3;
+    border-radius: 4px;
+    border: var(--stroke)
+  }
+  /* Utility classes */
+  .mt-20 {
+    margin-top: 20px;
+  }
+  .mb-16 {
+    margin-bottom: 16px;
+  }
+  .mb-24 {
+    margin-bottom: 24px;
   }
 </style>

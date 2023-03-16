@@ -169,7 +169,7 @@ Offer.create!(
   status: 0
 )
 Chatroom.create!(
-  name: "Chatroom From Seed",
+  name: "Conversation between #{anthony_profile.user.first_name} and #{jenn.first_name}",
   founder_id: jenn.id,
   developer_id: anthony.id
 )
