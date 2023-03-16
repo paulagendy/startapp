@@ -24,10 +24,10 @@ end
 
 puts "adding the variables done "
 
-bob = User.create!(email: 'bob@email.com', password: '123456', nickname: "Bob Extra", role:2,first_name:'Bob', last_name:'Al Koukou' )
+# bob = User.create!(email: 'bob@email.com', password: '123456', nickname: "Bob Extra", role:2,first_name:'Bob', last_name:'Al Koukou' )
 anthony = User.create!(email: 'anthony@email.com', password: '123456', nickname: "Anthony Super", role:2, first_name:'Anthony', last_name:'Amin' )
 steven = User.create!(email: 'Steven@email.com', password: '123456', nickname: "Steven Amazed", role:2, first_name:'Steven', last_name:'Andrade' )
-samantha = User.create!(email: 'samantha@email.com',nickname: "Samantha Wowza", password: '123456', role:2, first_name:'Samantha', last_name:'Bruderlein' )
+# samantha = User.create!(email: 'samantha@email.com',nickname: "Samantha Wowza", password: '123456', role:2, first_name:'Samantha', last_name:'Bruderlein' )
 becki = User.create!(email: 'becki@email.com', password: '123456', role:2, first_name:'Becki', last_name:'Belai' )
 max = User.create!(email: 'max@email.com', password: '123456', role:2, first_name:'Max', last_name:'Di Fiore' )
 amanda = User.create!(email: 'amanda@email.com', password: '123456', role:2, first_name:'Amanda', last_name:'Doulcet' )

@@ -4,15 +4,20 @@
   <% end %>
   <div class="navbar--float-right--container">
     <% if user_signed_in? %>
-      <% unless current_user.projects.last.nil? %>
-        <%= link_to "Projects", project_path(current_user.projects.last), class: "nav-link" %>
+      <% if current_user.founder? %>
+        <% unless current_user.projects.last.nil? %>
+          <%= link_to "Projects", project_path(current_user.projects.last), class: "nav-link" %>
+        <% end %>
+        <% unless current_user.projects.last.offers.empty? %>
+          <%= link_to "Offers",  project_offers_path(current_user.projects.last), class: "nav-link" %>
+        <% end %>
+        <% unless current_user.founder_chatrooms.last.nil?%>
+          <%= link_to "Inbox", chatroom_path(current_user.founder_chatrooms.last), class: "nav-link" %>
+        <% end %>
+      <% else current_user.developer? %>
+        <%= link_to "click here !!!", my_dev_profile_path  %>
       <% end %>
-      <% unless current_user.projects.last.offers.empty? %>
-        <%= link_to "Offers",  project_offers_path(current_user.projects.last), class: "nav-link" %>
-      <% end %>
-      <% unless current_user.founder_chatrooms.last.nil?%>
-        <%= link_to "Inbox", chatroom_path(current_user.founder_chatrooms.last), class: "nav-link" %>
-      <% end %>
+
       <%# HERE is the link to redirest to the developer dashboards %>
       <%# <%= link_to "My developer profile", my_dev_profile_path %>
 
