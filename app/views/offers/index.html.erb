@@ -1,15 +1,61 @@
-<h1>Offer Statuses</h1>
-<div class=" card card-wrapper--main">
-  <% @offers.each do |offer|%>
-    <div class="offer-title-container">
-      <img src="<%= offer.developer_profile.avatar %>" alt="A american portrait of a developer" class="avatar-img mt-20">
-      <%= offer.developer_profile.user.full_name %>
-      <% offer.developer_profile.technologies.each do |tech| %>
-        <%= tech.name %>
-        <%= offer.status %>
-      <% end %>
-    </div>
-    <%= link_to "See Profile" ,developer_path(offer.developer_profile)  %>
-  <% end %>
-</div>
-<style></style>
+<main class="offer-status--wrapper">
+  <h1 class="headline-display">Offer Statuses</h1>
+  <div class="card offer--status-card--wrapper">
+    <% @offers.each do |offer|%>
+      <div class="offer--dev--wrapper">
+        <div class="space-between">
+          <img src="<%= offer.developer_profile.avatar %>" alt="A american portrait of a developer" class="avatar-img mb-24">
+          <div class="offer--dev-title--container">
+            <%= offer.developer_profile.user.full_name %>
+            <%= offer.developer_profile.description %>
+          </div>
+        </div>
+        <div class="space-between align-right">
+          <div class="status-chip">
+            <i class="status-chip--decarator"></i>
+            <span>Offer <%= offer.status %></span>
+          </div>
+          <%= link_to "See Profile" ,developer_path(offer.developer_profile)  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</main>
+<style>
+  .offer-status--wrapper {
+    padding: 0 24px;
+  }
+  .offer--dev--wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .space-between {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .align-right {
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .card.offer--status-card--wrapper {
+    padding:24px 12px;
+  }
+  /* Status chip */
+  .status-chip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px 8px 8px;
+    gap: 6px;
+    border-radius: 100vw;
+  }
+  .status-chip.accepted {
+    background: rgba(216, 237, 124, 0.7);
+  }
+  .status-chip .status-chip--decarator {
+    width: 8px;
+    height: 8px;
+    border-radius: 1vw;
+  }
+</style>
