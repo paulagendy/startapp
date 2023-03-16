@@ -176,4 +176,3 @@ Chatroom.create!(
 
 puts "Generating chatroom done"
 #  for seed for chatroom END
-
