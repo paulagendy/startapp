@@ -21,14 +21,18 @@
         <p class ="number-field--label">Hourly Rate</p>
         <%= f.number_field :hourly_rate %>
         <%# TODO: Add custom label %>
-        <%= f.submit %>
       </div>
     </div>
+    <%= f.submit %>
   <% end %>
 </main>
 <style>
   .offer-wrapper {
     padding: 0 24px;
+    padding-bottom: 24px;
+  }
+  .offer-wrapper input[type="submit"] {
+    border-radius: 8px;
   }
   .number-field--label {
     font-size: 14px;
