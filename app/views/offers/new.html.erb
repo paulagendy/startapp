@@ -13,7 +13,6 @@
   </div>
   <div class="card card-wrapper--main">
     <div class="offer-form--container">
-      <h2 class="card-label mb-16">Your offer</h2>
       <%# TODO: make sure it sends the form submission to offer %>
       <%= simple_form_for([@developer_profile, @offer], url: developer_offers_path(@developer_profile)) do |f| %>
         <p class = "number-field--label">Number of hours</p>

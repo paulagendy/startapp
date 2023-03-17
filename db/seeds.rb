@@ -108,7 +108,7 @@ developer_fifth = DeveloperProfile.create!(
   school: 'UC Berkeley',
   degree: "Master's in Cybersecurity",
   years_of_experience:4,
-  description:'I love div soups',
+  description:'I love div soups ',
   bio: "Front-end developer with a knack for crafting stunning and seamless websites. With 3 years of experience in the field, I have honed my skills in HTML, CSS, JavaScript, and responsive design to build top-notch websites that engage users and drive results.",
   avatar: "https://res.cloudinary.com/dvqjiilqg/image/upload/v1678730658/ghngcdj8sbxuw5wsym6z.jpg"
 )
