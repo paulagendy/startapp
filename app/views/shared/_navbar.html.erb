@@ -1,6 +1,6 @@
 <div class="navbar--wrapper">
   <%= link_to root_path, class: "logo" do %>
-    StartApp
+    <%= image_tag "startapp-logo--w-bg.svg", class: "logo" %>
   <% end %>
   <div class="navbar--float-right--container">
     <% if user_signed_in? %>
@@ -31,6 +31,7 @@
 </div>
 <style>
   .logo {
+    width: 40px;
     font-weight: 600;
     text-decoration: none;
     color: var(--on-primary);
