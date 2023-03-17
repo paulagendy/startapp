@@ -171,7 +171,7 @@ puts "project done"
 # login as jenn and contact anthony
 
 Chatroom.create!(
-  name: "Conversation between #{anthony_profile.user.first_name} and #{hiyabel.first_name}",
+  name: "Conversation between #{developer_fourth.user.first_name} and #{hiyabel.first_name}",
   founder_id: hiyabel.id,
   developer_id: max.id
 )
